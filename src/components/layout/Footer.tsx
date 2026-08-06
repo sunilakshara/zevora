@@ -8,15 +8,17 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-primary text-white pt-20 pb-10 border-t border-white/5">
+    <footer className="text-white pt-20 pb-10 border-t border-white/5" style={{ backgroundColor: '#04133b' }}>
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         {/* Brand Column */}
         <div className="col-span-1 md:col-span-1">
-          <Link href="/" className="flex items-center gap-3 mb-6">
-            <img src="/logo.jpeg" alt="Zevora Groupe" className="h-8 w-auto object-contain rounded-sm" />
-            <span className="text-xl font-serif font-bold tracking-wider">
-              ZEVORA <span className="text-secondary font-light">GROUPE</span>
-            </span>
+          <Link href="/" className="flex items-center mb-6 group">
+            <img
+              src="/logo.png"
+              alt="Zevora Groupe"
+              className="h-24 w-auto object-contain"
+              style={{ filter: 'drop-shadow(0 2px 12px rgba(212,175,55,0.25))' }}
+            />
           </Link>
           <p className="text-white/70 text-sm leading-relaxed">
             {t.footer.description}

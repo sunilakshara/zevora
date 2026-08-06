@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import Button from "@/components/ui/Button";
-import { submitInquiry } from "../actions/inquiry";
+import { submitInquiry } from "@/app/actions/inquiry";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ContactPage() {

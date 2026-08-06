@@ -1,7 +1,9 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
-import { Locale, Translations, translations } from "@/lib/translations";
+import React, { createContext, useContext } from "react";
+import { useLocale, useMessages } from "next-intl";
+import { useRouter, usePathname } from "next/navigation";
+import { Locale, Translations } from "@/lib/translations";
 
 interface LanguageContextType {
   locale: Locale;
@@ -17,42 +19,33 @@ const languages: { code: Locale; label: string; name: string }[] = [
   { code: "fr", label: "FR", name: "Français" },
 ];
 
-const LanguageContext = createContext<LanguageContextType>({
-  locale: "en",
-  setLocale: () => {},
-  t: translations.en,
-  isRTL: false,
-  languages,
-});
+const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("zevora_locale") as Locale | null;
-    if (saved && (saved === "en" || saved === "ar" || saved === "fr")) {
-      setLocaleState(saved);
-      document.documentElement.lang = saved;
-      document.documentElement.dir = saved === "ar" ? "rtl" : "ltr";
-    }
-  }, []);
+  const locale = useLocale() as Locale;
+  const messages = useMessages() as unknown as Translations;
+  const router = useRouter();
+  const pathname = usePathname();
 
   const setLocale = (newLocale: Locale) => {
-    setLocaleState(newLocale);
-    localStorage.setItem("zevora_locale", newLocale);
-    document.documentElement.lang = newLocale;
-    document.documentElement.dir = newLocale === "ar" ? "rtl" : "ltr";
+    // Replace the locale in the URL path (e.g. /en/about -> /ar/about)
+    const segments = pathname.split('/');
+    if (languages.some(l => l.code === segments[1])) {
+      segments[1] = newLocale;
+    } else {
+      segments.splice(1, 0, newLocale);
+    }
+    router.push(segments.join('/') || '/');
   };
 
   const isRTL = locale === "ar";
-  const t = translations[locale] || translations.en;
 
   return (
     <LanguageContext.Provider
       value={{
         locale,
         setLocale,
-        t,
+        t: messages,
         isRTL,
         languages,
       }}

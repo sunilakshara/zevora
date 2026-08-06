@@ -33,26 +33,20 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-primary-dark/95 backdrop-blur-md shadow-2xl py-3 border-b border-secondary/20"
-          : "bg-primary-dark/80 backdrop-blur-md py-4 border-b border-white/5"
+          ? "shadow-2xl border-b border-secondary/20"
+          : "border-b border-white/5"
       }`}
+      style={{ backgroundColor: '#04133b' }}
     >
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
+      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        {/* Logo — transparent PNG, blends with bg */}
+        <Link href="/" className="flex items-center group shrink-0">
           <img
-            src="/logo.jpeg"
+            src="/logo.png"
             alt="Zevora Groupe Logo"
-            className="h-10 w-auto object-contain rounded-sm"
+            className="h-24 md:h-28 w-auto object-contain"
+            style={{ filter: 'drop-shadow(0 2px 12px rgba(212,175,55,0.25))' }}
           />
-          <div className="flex flex-col">
-            <span className="text-lg font-serif font-bold tracking-[0.15em] text-white">
-              ZEVORA <span className="text-secondary font-light">GROUPE</span>
-            </span>
-            <span className="text-[8px] tracking-[0.25em] text-secondary/90 uppercase font-sans font-medium">
-              {t.nav.tasteBeyondBorders}
-            </span>
-          </div>
         </Link>
 
         {/* Desktop Links */}
