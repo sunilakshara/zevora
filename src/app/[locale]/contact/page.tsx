@@ -38,7 +38,7 @@ export default function ContactPage() {
             <span className="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-4 block">
               {t.contactPage.tagline}
             </span>
-            <h1 className="text-primary text-5xl font-serif mb-8 leading-tight">
+            <h1 className="text-primary text-3xl md:text-5xl font-serif mb-6 md:mb-8 leading-tight">
               {t.contactPage.title1} <br />
               <span className="text-secondary italic">{t.contactPage.title2}</span>
             </h1>
@@ -94,7 +94,7 @@ export default function ContactPage() {
           </div>
 
           {/* Right Column: Form */}
-          <div className="bg-white p-8 md:p-12 shadow-2xl shadow-primary/5 border border-gray-50 relative overflow-hidden">
+          <div className="bg-white border border-gray-100 rounded-lg p-6 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 -mr-16 -mt-16 rounded-full" />
 
             {isSuccess ? (
@@ -115,7 +115,7 @@ export default function ContactPage() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8">
-                <h3 className="text-2xl font-serif text-primary mb-8">
+                <h3 className="text-xl md:text-2xl font-serif text-primary mb-2">
                   {t.contactPage.formTitle}
                 </h3>
 

@@ -70,7 +70,7 @@ export default function ProductsPage() {
           <span className="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-4 block">
             {t.products.tagline}
           </span>
-          <h1 className="text-primary text-5xl font-serif mb-8">{t.products.title}</h1>
+          <h1 className="text-primary text-3xl md:text-5xl font-serif mb-6 md:mb-8">{t.products.title}</h1>
           <p className="text-gray-600 max-w-2xl text-base sm:text-lg mb-8 leading-relaxed">
             {t.products.subtitle}
           </p>
@@ -99,14 +99,14 @@ export default function ProductsPage() {
                 </div>
               </div>
 
-              <div className="w-full lg:w-1/2 p-8 lg:p-12 flex flex-col justify-between">
+              <div className="w-full lg:w-1/2 p-6 md:p-8 lg:p-12 flex flex-col justify-between">
                 <div>
                   <h2 className="text-3xl font-serif text-primary mb-4">{product.name}</h2>
                   <p className="text-gray-500 mb-8 leading-relaxed font-sans text-sm sm:text-base">
                     {product.desc}
                   </p>
 
-                  <div className="grid grid-cols-2 gap-y-6 gap-x-12 mb-10">
+                  <div className="grid grid-cols-2 gap-y-6 gap-x-6 lg:gap-x-12 mb-10">
                     <div>
                       <span className="text-[10px] text-secondary font-bold uppercase tracking-widest block mb-1">
                         {t.products.grade}

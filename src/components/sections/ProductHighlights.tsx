@@ -36,12 +36,12 @@ export default function ProductHighlights() {
   return (
     <section className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6 md:gap-8">
           <div className="max-w-2xl">
             <span className="text-secondary font-medium tracking-[0.25em] uppercase text-xs block mb-3">
               {t.products.tagline}
             </span>
-            <h2 className="text-primary text-4xl md:text-5xl font-serif mb-4 leading-tight">
+            <h2 className="text-primary text-3xl md:text-5xl font-serif mb-4 leading-tight">
               {t.products.title}
             </h2>
             <p className="text-gray-600 font-sans leading-relaxed">
@@ -69,7 +69,7 @@ export default function ProductHighlights() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
               className={`relative overflow-hidden group cursor-pointer rounded-sm ${
-                product.size === "large" ? "md:col-span-2 h-[500px]" : "h-[500px]"
+                product.size === "large" ? "md:col-span-2 h-[380px] md:h-[500px]" : "h-[380px] md:h-[500px]"
               }`}
             >
               <Link href={product.href} className="block w-full h-full">

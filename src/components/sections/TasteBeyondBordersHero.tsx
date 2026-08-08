@@ -44,7 +44,7 @@ export default function TasteBeyondBordersHero() {
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
 
   return (
-    <section className="relative min-h-screen w-full bg-[#081C3A] text-white flex flex-col justify-between pt-24 pb-12 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 overflow-hidden">
+    <section className="relative min-h-[90vh] md:min-h-screen w-full bg-[#081C3A] text-white flex flex-col justify-between pt-24 pb-8 sm:pt-28 sm:pb-14 lg:pt-32 lg:pb-16 overflow-hidden">
       {/* Background Graphic Asset with Pouch & Ship on Right */}
       <div className="absolute inset-0 z-0">
         <img
@@ -74,7 +74,7 @@ export default function TasteBeyondBordersHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif leading-[1.05] tracking-tight mb-4"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif leading-[1.05] tracking-tight mb-4"
             >
               <span className="text-white">{t.hero.title1}</span> <br />
               <span className="text-[#D4AF37]">{t.hero.title2}</span>
@@ -135,7 +135,7 @@ export default function TasteBeyondBordersHero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="border border-[#D4AF37]/25 bg-[#081C3A]/70 backdrop-blur-xl rounded-sm p-5 sm:p-6 lg:p-7 shadow-2xl"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 lg:gap-3 divide-y sm:divide-y-0 sm:divide-x rtl:sm:divide-x-reverse divide-[#D4AF37]/20">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-3 divide-y sm:divide-y-0 sm:divide-x rtl:sm:divide-x-reverse divide-[#D4AF37]/20">
             {stats.map((stat, idx) => (
               <div
                 key={idx}
@@ -143,11 +143,11 @@ export default function TasteBeyondBordersHero() {
                   idx !== 0 ? "pt-3 sm:pt-0 sm:pl-4 sm:rtl:pl-0 sm:rtl:pr-4 lg:pl-6 lg:rtl:pl-0 lg:rtl:pr-6" : ""
                 }`}
               >
-                <div className="w-11 h-11 rounded-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] shrink-0">
-                  <stat.icon size={22} />
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-sm bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37] shrink-0">
+                  <stat.icon size={20} className="sm:w-[22px] sm:h-[22px]" />
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-serif font-bold text-white tracking-tight leading-none mb-1">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-serif font-bold text-white tracking-tight leading-none mb-1">
                     {stat.value}
                   </div>
                   <div className="text-[11px] font-sans text-white/70 leading-tight">

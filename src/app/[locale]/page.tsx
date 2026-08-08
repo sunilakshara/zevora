@@ -28,7 +28,7 @@ export default function Home() {
             <span className="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-6 block">
               {t.logistics.tagline}
             </span>
-            <h2 className="text-4xl md:text-5xl font-serif mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-serif mb-6 md:mb-8 leading-tight">
               {t.logistics.title1} <br />
               <span className="text-secondary-light">{t.logistics.title2}</span>
             </h2>
@@ -67,7 +67,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative aspect-square md:aspect-auto md:h-[580px] rounded-lg overflow-hidden border border-white/15 shadow-2xl group bg-primary-dark">
+          <div className="relative aspect-[4/3] md:aspect-auto md:h-[580px] rounded-lg overflow-hidden border border-white/15 shadow-2xl group bg-primary-dark mt-8 lg:mt-0">
             <img
               src="/images/logistics_ship.webp"
               alt="Global Port & Shipping Logistics"
@@ -83,7 +83,7 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="flex items-baseline gap-2">
-                    <span className="text-3xl sm:text-4xl font-serif font-bold text-white tracking-tight">
+                    <span className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight">
                       99.8%
                     </span>
                     <span className="text-[10px] text-secondary font-bold tracking-widest uppercase">
@@ -110,7 +110,7 @@ export default function Home() {
           />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-6xl font-serif mb-6 md:mb-8 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-serif mb-6 md:mb-8 leading-tight">
             {t.nav.tasteBeyondBorders}
           </h2>
           <p className="text-base md:text-lg text-white/70 mb-10 md:mb-12 max-w-2xl mx-auto">

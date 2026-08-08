@@ -72,7 +72,7 @@ export default function ServicesPage() {
             <span className="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-6 block">
               {t.marketsPage.tagline}
             </span>
-            <h1 className="text-primary text-4xl sm:text-5xl md:text-6xl font-serif mb-8 leading-tight">
+            <h1 className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif mb-6 md:mb-8 leading-tight">
               {t.marketsPage.title1} <br />
               <span className="text-secondary italic">{t.marketsPage.title2}</span>
             </h1>
@@ -90,7 +90,7 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="w-full rounded-2xl overflow-hidden shadow-2xl relative aspect-[16/9] md:aspect-[21/9] border border-gray-100"
+            className="w-full rounded-2xl overflow-hidden shadow-2xl relative aspect-[4/3] md:aspect-[21/9] border border-gray-100"
           >
             <img 
               src="/images/world_map.webp" 
@@ -136,7 +136,7 @@ export default function ServicesPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className={`bg-white p-10 border border-gray-100 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden ${region.borderColor}`}
+                className={`bg-white p-6 md:p-10 border border-gray-100 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden ${region.borderColor}`}
               >
                 {/* Premium corner glow */}
                 <div className={`absolute -top-24 -right-24 w-64 h-64 bg-gradient-to-bl ${region.color} rounded-full opacity-0 group-hover:opacity-100 blur-3xl transition-opacity duration-700 pointer-events-none`} />
