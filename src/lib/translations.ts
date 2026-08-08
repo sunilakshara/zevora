@@ -64,6 +64,8 @@ export interface Translations {
     turmericDesc: string;
     cloves: string;
     clovesDesc: string;
+    cinnamon: string;
+    cinnamonDesc: string;
     marine: string;
     marineDesc: string;
     beverages: string;
@@ -83,24 +85,21 @@ export interface Translations {
     onTimeRate: string;
     verified: string;
   };
-  servicesPage: {
+  marketsPage: {
     tagline: string;
     title1: string;
     title2: string;
     description: string;
-    learnMore: string;
-    service1Title: string;
-    service1Desc: string;
-    service2Title: string;
-    service2Desc: string;
-    service3Title: string;
-    service3Desc: string;
-    service4Title: string;
-    service4Desc: string;
-    service5Title: string;
-    service5Desc: string;
-    service6Title: string;
-    service6Desc: string;
+    europe: string;
+    europeDesc: string;
+    gcc: string;
+    gccDesc: string;
+    us: string;
+    usDesc: string;
+    canada: string;
+    canadaDesc: string;
+    apac: string;
+    apacDesc: string;
     customTitle: string;
     customSubtitle: string;
     customButton: string;
@@ -199,7 +198,7 @@ export const translations: Record<Locale, Translations> = {
       tagline: "ABOUT ZEVORA GROUPE",
       title: "Bridging India to the World",
       description:
-        "Rooted in three decades of trade mastery, Zevora Groupe orchestrates seamless international supply chains for premium Indian spices, seafood, agricultural treasures, and specialized food commodities.",
+        "At Zevora Groupe, we believe every product tells a story. From hand-selected spices and premium seafood to carefully sourced food and agricultural products, we connect the authentic taste of India with customers across the globe through responsible sourcing and trusted international trade.",
       pillar1Title: "Authentic Farm Sourcing",
       pillar1Desc:
         "Direct origin partnerships with certified heritage farms across Kerala and India, ensuring pure botanical purity.",
@@ -208,7 +207,7 @@ export const translations: Record<Locale, Translations> = {
         "Precision climate-controlled sea and air shipping preserving aroma, volatile oils, and peak freshness worldwide.",
       pillar3Title: "Certified Export Purity",
       pillar3Desc:
-        "Rigorous multi-stage laboratory compliance with US-FDA, EU, HACCP, ISO, and GCC food safety benchmarks.",
+        "Rigorous multi-stage laboratory compliance with strict international food safety benchmarks.",
       exploreHeritage: "Explore Our Heritage",
     },
     products: {
@@ -228,6 +227,8 @@ export const translations: Record<Locale, Translations> = {
       turmericDesc: "High curcumin content (5.5%+), deep golden color, and rich earthy aroma for culinary and nutraceuticals.",
       cloves: "Zanzibar & Kerala Handpicked Cloves",
       clovesDesc: "High eugenol oil content, intact crown heads, aromatic warmth and rich crimson-brown hue.",
+      cinnamon: "Ceylon & Cassia Cinnamon",
+      cinnamonDesc: "Premium, aromatic rolled quills with high essential oil content, prized for sweet and savory dishes.",
       marine: "Pristine Indian Ocean Black Tiger Prawns",
       marineDesc: "Individually quick frozen (IQF) jumbo grade seafood sustainably caught from pure coastal waters.",
       beverages: "Highland Single-Estate Black Tea & Coffee",
@@ -248,42 +249,31 @@ export const translations: Record<Locale, Translations> = {
       onTimeRate: "ON-TIME DELIVERY RATE",
       verified: "VERIFIED",
     },
-    servicesPage: {
-      tagline: "CORE COMPETENCIES",
-      title1: "End-to-End",
-      title2: "Logistical Excellence",
-      description:
-        "We provide a comprehensive suite of services designed to bridge the gap between Indian agricultural excellence and global market demands. Our integrated approach ensures quality at every touchpoint.",
-      learnMore: "Learn More",
-      service1Title: "Ocean Freight Solutions",
-      service1Desc:
-        "Full Container Load (FCL) and Less than Container Load (LCL) shipping with strategic port partnerships for competitive transit times.",
-      service2Title: "Air Freight Logistics",
-      service2Desc:
-        "Urgent delivery solutions for high-value premium harvests with active cold-chain monitoring for temperature-sensitive products.",
-      service3Title: "Quality Assurance",
-      service3Desc:
-        "Rigorous testing protocols in our in-house laboratories to ensure compliance with ASTA, ESA, US-FDA, and GCC food safety standards.",
-      service4Title: "Bespoke Packaging",
-      service4Desc:
-        "Customized export packaging solutions including vacuum sealing, nitrogen flushing, and private labeling for retail-ready distribution.",
-      service5Title: "Documentation & Compliance",
-      service5Desc:
-        "Expert handling of all export documentation, phytosanitary certifications, and customs clearance protocols for a friction-less experience.",
-      service6Title: "Inland Distribution",
-      service6Desc:
-        "Secure and efficient surface transportation from farm-gate to our processing units and onward to major international ports.",
-      customTitle: "Need a Custom Logistics Solution?",
-      customSubtitle:
-        "Our specialists can design a bespoke supply chain strategy for your specific volume and destination requirements.",
-      customButton: "Speak to a Logistics Specialist",
+    marketsPage: {
+      tagline: "GLOBAL REACH",
+      title1: "Connecting Global Markets with",
+      title2: "India's Finest Agricultural Products",
+      description: "A trusted supplier of premium spices and food products serving Europe, GCC countries, North America, and beyond. Explore the regions we supply globally.",
+      europe: "Europe",
+      europeDesc: "Strict compliance with EU phytosanitary and safety standards.",
+      gcc: "GCC Countries",
+      gccDesc: "Rapid transit and deep market penetration across the Middle East.",
+      us: "United States",
+      usDesc: "Full regulatory compliance ensuring premium quality for American consumers.",
+      canada: "Canada",
+      canadaDesc: "Meeting stringent CFIA requirements for the Canadian market.",
+      apac: "Asia-Pacific",
+      apacDesc: "Strategic distribution hubs serving the fastest-growing region.",
+      customTitle: "Looking for a Reliable Export Partner?",
+      customSubtitle: "Get in touch with our export team today and discover how Zevora Groupe can support your global sourcing needs.",
+      customButton: "Request Quotation",
     },
     aboutPage: {
       heritageTag: "OUR HERITAGE",
       title1: "A Legacy of Quality,",
       title2: "Rooted in Tradition",
-      p1: "Founded in 1994 in the heart of Kerala's spice belt, Zevora Groupe began with a simple vision: to bring the authentic flavors of India to the world without compromise.",
-      p2: "Over three decades, we have evolved from a local trading house into a global logistics powerhouse, while maintaining our core values of integrity, transparency, and deep respect for the farmers who are the backbone of our industry.",
+      p1: "Zevora groupe is an export-focused company dedicated to sourcing and delivering premium agricultural and food products from India to global markets.",
+      p2: "Our Mission: To build long-term partnerships through quality, transparency, and reliability. Our Vision: To become a globally trusted food and agricultural export brand.",
       yearsExcellence: "Years of Excellence",
       countriesReached: "Countries Reached",
       valuesTitle: "Driven by Excellence",
@@ -382,7 +372,7 @@ export const translations: Record<Locale, Translations> = {
         "شحن بحري وجوي دقيق ومتحكم بدرجة الحرارة يحافظ على النكهة والزيوت العطرية ونضارة المنتج.",
       pillar3Title: "نقاء معتمد للتصدير",
       pillar3Desc:
-        "امتثال مخبري صارم لمعايير هيئة الغذاء والدواء الأمريكية والاتحاد الأوروبي ومجلس التعاون الخليجي وHACCP وISO.",
+        "امتثال مخبري صارم لأعلى معايير السلامة الغذائية الدولية.",
       exploreHeritage: "استكشف تراثنا",
     },
     products: {
@@ -402,6 +392,8 @@ export const translations: Record<Locale, Translations> = {
       turmericDesc: "نسبة عالية من الكركمين (+5.5%) ولون ذهبي غني ورائحة نقية للطهي والمكملات الغذائية.",
       cloves: "قرنفل زنجبار وكيرلا المنتقى يدوياً",
       clovesDesc: "تركيز عالٍ لزيت الأوجينول، رؤوس سليمة، ورائحة دافئة ولون قرمزي غني.",
+      cinnamon: "قرفة سيلان وكاسيا الفاخرة",
+      cinnamonDesc: "لفائف عطرية فاخرة بنسبة عالية من الزيوت الأساسية، مثالية للأطباق الحلوة والمالحة.",
       marine: "روبيان النمر الأسود من المحيط الهندي",
       marineDesc: "مأكولات بحرية مجمدة فردياً وسريعة (IQF) بدرجة جامبو مصطادة من مياه ساحلية نقية.",
       beverages: "شاي أسود وقهوة أرابيكا من المزارع المرتفعة",
@@ -422,35 +414,24 @@ export const translations: Record<Locale, Translations> = {
       onTimeRate: "معدل التسليم في الوقت المحدد",
       verified: "معتمد",
     },
-    servicesPage: {
-      tagline: "الكفاءات الأساسية",
-      title1: "حلول لوجستية متكاملة",
-      title2: "من البداية إلى النهاية",
-      description:
-        "نقدم باقة شاملة من الخدمات المصممة لربط التميز الزراعي الهندي باحتياجات الأسواق العالمية، مع ضمان أعلى معايير الجودة في كل نقطة اتصال.",
-      learnMore: "اكتشف المزيد",
-      service1Title: "حلول الشحن البحري",
-      service1Desc:
-        "شحن الحاويات الكاملة (FCL) والمجزأة (LCL) مع شراكات استراتيجية بالموانئ لتقليل فترات الترانزيت.",
-      service2Title: "لوجستيات الشحن الجوي",
-      service2Desc:
-        "حلول تسليم سريعة للمحاصيل الفاخرة مع مراقبة نشطة لسلاسل التبريد للمنتجات الحساسة للحرارة.",
-      service3Title: "ضمان الجودة والفحص المخبري",
-      service3Desc:
-        "بروتوكولات فحص دقيقة في مختبراتنا لضمان الامتثال لمعايير ASTA وESA وFDA الأمريكية ودول الخليج.",
-      service4Title: "التعبئة والتغليف المخصص",
-      service4Desc:
-        "حلول تغليف تصدير مخصصة تشمل التفريغ الهوائي، حقن النيتروجين، والتسمية التجارية الخاصة للبيع بالتجزئة.",
-      service5Title: "التوثيق والامتثال الجمركي",
-      service5Desc:
-        "إدارة خبيرة لجميع وثائق التصدير والشهادات الصحية النباتية وإجراءات التخليص الجمركي السلس.",
-      service6Title: "التوزيع والنقل الداخلي",
-      service6Desc:
-        "نقل بري آمن وفعال من المزرعة إلى وحدات المعالجة ومنها مباشرة إلى كبرى الموانئ الدولية.",
-      customTitle: "هل تحتاج إلى حل لوجستي مخصص؟",
-      customSubtitle:
-        "يمكن لخبرائنا تصميم استراتيجية سلسلة إمداد مخصصة وفقاً لحجم شحنتك والوجهة المطلوبة.",
-      customButton: "تحدث مع خبير اللوجستيات",
+    marketsPage: {
+      tagline: "امتداد عالمي",
+      title1: "ربط الأسواق العالمية بـ",
+      title2: "أفضل المنتجات الزراعية الهندية",
+      description: "مورد موثوق للتوابل الفاخرة والمنتجات الغذائية لأوروبا ودول الخليج وأمريكا الشمالية وغيرها. استكشف المناطق التي نورد لها عالمياً.",
+      europe: "أوروبا",
+      europeDesc: "امتثال صارم لمعايير الصحة النباتية والسلامة الأوروبية.",
+      gcc: "دول مجلس التعاون الخليجي",
+      gccDesc: "عبور سريع واختراق عميق للأسواق في جميع أنحاء الشرق الأوسط.",
+      us: "الولايات المتحدة",
+      usDesc: "امتثال كامل للوائح التنظيمية لضمان الجودة الفائقة للمستهلكين الأمريكيين.",
+      canada: "كندا",
+      canadaDesc: "تلبية متطلبات وكالة فحص الأغذية الكندية الصارمة للسوق الكندي.",
+      apac: "آسيا والمحيط الهادئ",
+      apacDesc: "مراكز توزيع استراتيجية تخدم المنطقة الأسرع نمواً.",
+      customTitle: "هل تبحث عن شريك تصدير موثوق؟",
+      customSubtitle: "تواصل مع فريق التصدير لدينا اليوم واكتشف كيف يمكن لمجموعة زيفورا دعم احتياجاتك العالمية.",
+      customButton: "اطلب تسعيرة",
     },
     aboutPage: {
       heritageTag: "تراثنا العريق",
@@ -556,7 +537,7 @@ export const translations: Record<Locale, Translations> = {
         "Transport maritime et aérien à température dirigée préservant les arômes, les huiles essentielles et la fraîcheur optimale.",
       pillar3Title: "Pureté Certifiée à l'Export",
       pillar3Desc:
-        "Conformité rigoureuse en laboratoire aux normes US-FDA, Union Européenne, HACCP, ISO et réglementations GCC.",
+        "Conformité rigoureuse en laboratoire aux normes internationales de sécurité alimentaire les plus strictes.",
       exploreHeritage: "Découvrir Notre Héritage",
     },
     products: {
@@ -576,6 +557,8 @@ export const translations: Record<Locale, Translations> = {
       turmericDesc: "Haute teneur en curcumine (+5,5%), couleur dorée intense et arôme chaud pour la gastronomie et la nutraceutique.",
       cloves: "Clous de Girofle Triés à la Main",
       clovesDesc: "Teneur élevée en eugénol, têtes intactes, chaleur aromatique envoûtante et robe pourpre profond.",
+      cinnamon: "Cannelle de Ceylan & Cassia",
+      cinnamonDesc: "Bâtons roulés aromatiques haut de gamme, prisés pour les plats sucrés et salés.",
       marine: "Crevettes Géantes Black Tiger de l'Océan Indien",
       marineDesc: "Fruits de mer surgelés individuellement (IQF), pêchés de manière responsable dans des eaux côtières pures.",
       beverages: "Thé Noir des Hauts Plateaux & Café Arabica",
@@ -596,35 +579,24 @@ export const translations: Record<Locale, Translations> = {
       onTimeRate: "TAUX DE LIVRAISON DANS LES DÉLAIS",
       verified: "VÉRIFIÉ",
     },
-    servicesPage: {
-      tagline: "COMPÉTENCES CLÉS",
-      title1: "Excellence Logistique",
-      title2: "De Bout en Bout",
-      description:
-        "Nous proposons une gamme complète de services conçus pour relier l'excellence agricole indienne aux exigences des marchés mondiaux, garantissant une qualité optimale à chaque étape.",
-      learnMore: "En savoir plus",
-      service1Title: "Fret Maritime International",
-      service1Desc:
-        "Expéditions en conteneurs complets (FCL) et de groupage (LCL) avec des partenariats portuaires stratégiques pour des délais optimisés.",
-      service2Title: "Logistique de Fret Aérien",
-      service2Desc:
-        "Solutions d'acheminement express pour les récoltes haut de gamme avec surveillance active de la chaîne du froid.",
-      service3Title: "Assurance & Contrôle Qualité",
-      service3Desc:
-        "Protocoles de tests rigoureux dans nos laboratoires internes pour garantir la conformité aux normes ASTA, ESA, US-FDA et GCC.",
-      service4Title: "Conditionnement Sur-Mesure",
-      service4Desc:
-        "Solutions d'emballage d'exportation personnalisées incluant mise sous vide, injection d'azote et étiquetage privé pour la distribution.",
-      service5Title: "Documentation & Dédouanement",
-      service5Desc:
-        "Prise en charge intégrale des formalités douanières, certificats phytosanitaires et documents d'exportation.",
-      service6Title: "Distribution Terrestre",
-      service6Desc:
-        "Transport routier sécurisé et efficace depuis les zones de culture jusqu'à nos unités de conditionnement et ports d'embarquement.",
-      customTitle: "Besoin d'une Solution Logistique Personnalisée ?",
-      customSubtitle:
-        "Nos experts conçoivent une stratégie logistique sur mesure adaptée à vos volumes et destinations cibles.",
-      customButton: "Contacter un Spécialiste",
+    marketsPage: {
+      tagline: "PORTÉE MONDIALE",
+      title1: "Connecter les marchés mondiaux avec",
+      title2: "les meilleurs produits agricoles d'Inde",
+      description: "Un fournisseur de confiance d'épices et de produits alimentaires haut de gamme desservant l'Europe, les pays du CCG, l'Amérique du Nord, et au-delà.",
+      europe: "Europe",
+      europeDesc: "Conformité stricte aux normes de sécurité et phytosanitaires de l'UE.",
+      gcc: "Pays du CCG",
+      gccDesc: "Transit rapide et forte pénétration du marché à travers le Moyen-Orient.",
+      us: "États-Unis",
+      usDesc: "Conformité réglementaire totale garantissant une qualité supérieure pour les consommateurs américains.",
+      canada: "Canada",
+      canadaDesc: "Répondant aux exigences strictes de l'ACIA pour le marché canadien.",
+      apac: "Asie-Pacifique",
+      apacDesc: "Hubs de distribution stratégiques desservant la région à la croissance la plus rapide.",
+      customTitle: "À la recherche d'un partenaire d'exportation fiable ?",
+      customSubtitle: "Contactez notre équipe dès aujourd'hui et découvrez comment Zevora Groupe peut soutenir vos besoins d'approvisionnement mondiaux.",
+      customButton: "Demander un devis",
     },
     aboutPage: {
       heritageTag: "NOTRE HÉRITAGE",

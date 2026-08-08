@@ -10,6 +10,8 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState("cardamom");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const { t } = useLanguage();
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -166,21 +168,77 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-2 relative">
                   <label className="text-[10px] font-bold tracking-widest text-gray-400 uppercase">
                     {t.contactPage.productInterest}
                   </label>
-                  <select
-                    name="product"
-                    className="w-full border-0 border-b border-gray-200 focus:ring-0 focus:border-secondary py-2 bg-transparent"
-                  >
-                    <option value="cardamom">{t.products.cardamom}</option>
-                    <option value="pepper">{t.products.blackPepper}</option>
-                    <option value="turmeric">{t.products.turmeric}</option>
-                    <option value="cloves">{t.products.cloves}</option>
-                    <option value="marine">{t.products.marine}</option>
-                    <option value="beverages">{t.products.beverages}</option>
-                  </select>
+                  
+                  {/* Custom Styled Select Component */}
+                  <div className="relative">
+                    <input type="hidden" name="product" value={selectedProduct} />
+                    
+                    <button
+                      type="button"
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      className="w-full border-0 border-b border-gray-200 py-2 bg-transparent text-left flex justify-between items-center group focus:outline-none"
+                    >
+                      <span className="text-gray-800">
+                        {
+                          [
+                            { id: "cardamom", label: t.products.cardamom },
+                            { id: "pepper", label: t.products.blackPepper },
+                            { id: "turmeric", label: t.products.turmeric },
+                            { id: "cloves", label: t.products.cloves },
+                            { id: "cinnamon", label: t.products.cinnamon },
+                            { id: "marine", label: t.products.marine },
+                            { id: "beverages", label: t.products.beverages },
+                          ].find((p) => p.id === selectedProduct)?.label
+                        }
+                      </span>
+                      <motion.span 
+                        animate={{ rotate: isDropdownOpen ? 180 : 0 }}
+                        className="text-gray-400 group-hover:text-secondary transition-colors"
+                      >
+                        ▼
+                      </motion.span>
+                    </button>
+
+                    <motion.div
+                      initial={false}
+                      animate={isDropdownOpen ? "open" : "closed"}
+                      variants={{
+                        open: { opacity: 1, y: 0, display: "block" },
+                        closed: { opacity: 0, y: -10, transitionEnd: { display: "none" } }
+                      }}
+                      className="absolute left-0 right-0 top-full mt-2 bg-white border border-gray-100 shadow-2xl rounded-md z-50 overflow-hidden"
+                    >
+                      {[
+                        { id: "cardamom", label: t.products.cardamom },
+                        { id: "pepper", label: t.products.blackPepper },
+                        { id: "turmeric", label: t.products.turmeric },
+                        { id: "cloves", label: t.products.cloves },
+                        { id: "cinnamon", label: t.products.cinnamon },
+                        { id: "marine", label: t.products.marine },
+                        { id: "beverages", label: t.products.beverages },
+                      ].map((item) => (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => {
+                            setSelectedProduct(item.id);
+                            setIsDropdownOpen(false);
+                          }}
+                          className={`w-full text-left px-5 py-3 text-sm transition-colors cursor-pointer ${
+                            selectedProduct === item.id 
+                              ? "bg-primary text-white" 
+                              : "text-gray-600 hover:bg-gray-50 hover:text-secondary"
+                          }`}
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </motion.div>
+                  </div>
                 </div>
 
                 <div className="space-y-2">

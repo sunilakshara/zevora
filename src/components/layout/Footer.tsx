@@ -5,14 +5,14 @@ import { Mail, Phone, MapPin, ExternalLink, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
 
   return (
     <footer className="text-white pt-20 pb-10 border-t border-white/5" style={{ backgroundColor: '#04133b' }}>
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         {/* Brand Column */}
         <div className="col-span-1 md:col-span-1">
-          <Link href="/" className="flex items-center mb-6 group">
+          <Link href={`/${locale}`} className="flex items-center mb-6 group">
             <img
               src="/logo.png"
               alt="Zevora Groupe"
@@ -29,10 +29,10 @@ export default function Footer() {
         <div>
           <h4 className="text-secondary font-serif text-lg mb-6">{t.footer.quickLinks}</h4>
           <ul className="space-y-4 text-sm text-white/60">
-            <li><Link href="/products" className="hover:text-secondary transition-colors">{t.nav.products}</Link></li>
-            <li><Link href="/services" className="hover:text-secondary transition-colors">{t.nav.markets}</Link></li>
-            <li><Link href="/about" className="hover:text-secondary transition-colors">{t.nav.about}</Link></li>
-            <li><Link href="/contact" className="hover:text-secondary transition-colors">{t.nav.contact}</Link></li>
+            <li><Link href={`/${locale}/products`} className="hover:text-secondary transition-colors">{t.nav.products}</Link></li>
+            <li><Link href={`/${locale}/services`} className="hover:text-secondary transition-colors">{t.nav.markets}</Link></li>
+            <li><Link href={`/${locale}/about`} className="hover:text-secondary transition-colors">{t.nav.about}</Link></li>
+            <li><Link href={`/${locale}/contact`} className="hover:text-secondary transition-colors">{t.nav.contact}</Link></li>
           </ul>
         </div>
 
@@ -67,9 +67,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-4 text-[10px] uppercase tracking-[0.2em] text-white/40 text-center md:text-left">
         <p>{t.footer.rights}</p>
         <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-          <Link href="/about" className="hover:text-white transition-colors">{t.footer.privacy}</Link>
-          <Link href="/about" className="hover:text-white transition-colors">{t.footer.terms}</Link>
-          <Link href="/about" className="hover:text-white transition-colors">{t.footer.compliance}</Link>
+          <Link href={`/${locale}/about`} className="hover:text-white transition-colors">{t.footer.privacy}</Link>
+          <Link href={`/${locale}/about`} className="hover:text-white transition-colors">{t.footer.terms}</Link>
+          <Link href={`/${locale}/about`} className="hover:text-white transition-colors">{t.footer.compliance}</Link>
         </div>
       </div>
     </footer>

@@ -7,7 +7,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
 
 export default function ProductsPage() {
-  const { t, isRTL } = useLanguage();
+  const { t, isRTL, locale } = useLanguage();
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
 
   const products = [
@@ -50,6 +50,16 @@ export default function ProductsPage() {
       metricVal: "18% Min",
       moisture: "< 11%",
       image: "/images/cloves.webp",
+    },
+    {
+      name: t.products.cinnamon,
+      desc: t.products.cinnamonDesc,
+      origin: "Kerala, India & Sri Lanka",
+      grades: ["ALBA", "C5 Special", "H1", "Quillings"],
+      metricName: "Volatile Oil",
+      metricVal: "2.5% Min",
+      moisture: "< 14%",
+      image: "/images/cinnamon.webp",
     },
   ];
 
@@ -122,14 +132,14 @@ export default function ProductsPage() {
                         Standard
                       </span>
                       <p className="text-sm font-medium text-primary flex items-center gap-1.5">
-                        <CheckCircle2 size={14} className="text-green-600 shrink-0" /> US-FDA / EU / GCC
+                        <CheckCircle2 size={14} className="text-green-600 shrink-0" /> Global Benchmarks
                       </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                  <Link href="/contact" className="flex-1">
+                  <Link href={`/${locale}/contact`} className="flex-1">
                     <Button variant="primary" className="w-full flex justify-between items-center py-4 px-6 group cursor-pointer">
                       <span>{t.products.inquireNow}</span>
                       <ArrowIcon size={18} className="group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />

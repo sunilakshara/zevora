@@ -123,12 +123,6 @@ export default function Home() {
             >
               {t.nav.requestQuote}
             </Link>
-            <Link
-              href="/products"
-              className="w-full sm:w-auto inline-flex items-center justify-center border border-white/30 text-white px-8 md:px-10 py-4 md:py-5 font-bold uppercase tracking-[0.2em] text-xs md:text-sm hover:bg-white hover:text-primary transition-colors"
-            >
-              {t.products.viewAll}
-            </Link>
           </div>
         </div>
       </section>

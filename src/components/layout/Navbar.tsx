@@ -54,7 +54,7 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <Link
               key={link.name}
-              href={link.href}
+              href={`/${locale}${link.href === "/" ? "" : link.href}`}
               className="text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors text-white/80 hover:text-secondary"
             >
               {link.name}
@@ -65,7 +65,7 @@ export default function Navbar() {
         {/* Right CTA & Language */}
         <div className="hidden sm:flex items-center gap-5">
           <Link
-            href="/contact"
+            href={`/${locale}/contact`}
             className="border border-secondary text-secondary hover:bg-secondary hover:text-primary-dark text-[11px] font-bold tracking-[0.15em] uppercase px-5 py-2.5 rounded-sm transition-all duration-200 shadow-sm"
           >
             {t.nav.requestQuote}
@@ -161,14 +161,14 @@ export default function Navbar() {
             {navLinks.map((link) => (
               <Link
                 key={link.name}
-                href={link.href}
+                href={`/${locale}${link.href === "/" ? "" : link.href}`}
                 className="text-base font-medium py-2 hover:text-secondary transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
-            <Link href="/contact" onClick={() => setIsOpen(false)}>
+            <Link href={`/${locale}/contact`} onClick={() => setIsOpen(false)}>
               <Button variant="secondary" className="mt-4 w-full">
                 {t.nav.requestQuote}
               </Button>

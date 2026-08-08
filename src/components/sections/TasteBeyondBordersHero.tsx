@@ -104,9 +104,9 @@ export default function TasteBeyondBordersHero() {
 
             {/* CTA Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-wrap items-center gap-4"
             >
               <Link
@@ -117,17 +117,6 @@ export default function TasteBeyondBordersHero() {
                 <ArrowIcon
                   size={15}
                   className="group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"
-                />
-              </Link>
-
-              <Link
-                href="/about"
-                className="inline-flex items-center justify-center gap-3 border border-[#D4AF37]/80 hover:border-[#D4AF37] hover:bg-[#D4AF37]/15 bg-[#081C3A]/50 backdrop-blur-sm text-white font-bold text-xs tracking-[0.18em] uppercase px-7 py-4 rounded-sm transition-all duration-300 group cursor-pointer"
-              >
-                <span>{t.hero.ourStory}</span>
-                <ArrowIcon
-                  size={15}
-                  className="group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform text-[#D4AF37]"
                 />
               </Link>
             </motion.div>

@@ -29,13 +29,14 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const setLocale = (newLocale: Locale) => {
     // Replace the locale in the URL path (e.g. /en/about -> /ar/about)
-    const segments = pathname.split('/');
+    const segments = window.location.pathname.split('/');
     if (languages.some(l => l.code === segments[1])) {
       segments[1] = newLocale;
     } else {
       segments.splice(1, 0, newLocale);
     }
-    router.push(segments.join('/') || '/');
+    const newPath = segments.join('/') + window.location.search + window.location.hash;
+    window.location.href = newPath || '/';
   };
 
   const isRTL = locale === "ar";
