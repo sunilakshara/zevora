@@ -11,6 +11,7 @@ export interface Translations {
     requestQuote: string;
     tasteBeyondBorders: string;
     whyUs: string;
+    sustainability: string;
   };
   whyChooseUs: {
     title: string;
