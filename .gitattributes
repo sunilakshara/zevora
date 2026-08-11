@@ -10,3 +10,4 @@ src/app/opengraph-image.png !filter !diff !merge text=auto
 src/app/twitter-image.png !filter !diff !merge text=auto
 public/vercel.png !filter !diff !merge text=auto
 public/globe.png !filter !diff !merge text=auto
+public/images/*.png !filter !diff !merge text=auto
