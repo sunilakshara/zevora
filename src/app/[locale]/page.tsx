@@ -87,11 +87,11 @@ export default function Home() {
                       99.8%
                     </span>
                     <span className="text-[10px] text-secondary font-bold tracking-widest uppercase">
-                      {t.logistics.verified}
+                      {t.contact.verified}
                     </span>
                   </div>
                   <span className="text-[10px] tracking-[0.2em] text-white/70 uppercase block mt-0.5">
-                    {t.logistics.onTimeRate}
+                    {t.contact.onTimeRate}
                   </span>
                 </div>
               </div>
