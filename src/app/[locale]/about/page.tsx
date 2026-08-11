@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Users, Map, HeartHandshake } from "lucide-react";
+import { Award, Users, Map, HeartHandshake, Search, ShieldCheck, Package, FileText, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutPage() {
@@ -73,61 +73,41 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Product Categories Section */}
+        {/* Export Process Section */}
         <section className="mb-32">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-primary text-4xl font-serif mb-4">Product Categories</h2>
-            <div className="w-12 h-1 bg-secondary mx-auto"></div>
+            <h2 className="text-primary text-4xl font-serif mb-6">{t.exportProcess.title}</h2>
+            <div className="w-16 h-1 bg-secondary mx-auto"></div>
           </div>
-
-          <div className="space-y-16">
-            {/* Spices */}
-            <div>
-              <h3 className="text-2xl font-serif text-primary mb-8 border-b pb-4">Spices</h3>
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-                {[
-                  { name: "Black Pepper", img: "/images/black_pepper.webp" },
-                  { name: "Cardamom", img: "/images/cardamom.webp" },
-                  { name: "Turmeric", img: "/images/turmeric.webp" },
-                  { name: "Cinnamon", img: "/images/cinnamon.webp" },
-                  { name: "Cloves", img: "/images/cloves.webp" },
-                ].map((item) => (
-                  <div key={item.name} className="group relative overflow-hidden rounded-md shadow-md aspect-square bg-gray-100">
-                    <img 
-                      src={item.img} 
-                      alt={item.name} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
-                      <span className="text-white font-medium tracking-wide">{item.name}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Coming Soon Categories */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <div className="relative">
+            {/* Connecting Line (Desktop) */}
+            <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-gray-200 z-0"></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
               {[
-                { name: "Seafood", img: "/images/seafood.webp" },
-                { name: "Food & Beverages", img: "/images/beverages.webp" },
-              ].map((cat) => (
-                <div key={cat.name} className="group relative overflow-hidden rounded-md shadow-md h-64 md:h-80 bg-primary-dark">
-                  <img 
-                    src={cat.img} 
-                    alt={cat.name} 
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-700 ease-in-out" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/30 to-transparent flex flex-col items-center justify-center p-6 group-hover:from-primary-dark/80 transition-colors duration-500">
-                    <h3 className="text-3xl md:text-4xl font-serif text-white mb-6 transform group-hover:-translate-y-2 transition-transform duration-500 drop-shadow-lg">{cat.name}</h3>
-                    
-                    <div className="overflow-hidden">
-                      <span className="inline-block px-6 py-2 bg-white/10 backdrop-blur-md border border-white/20 text-secondary text-xs font-bold uppercase tracking-[0.2em] rounded-sm transform group-hover:translate-y-0 translate-y-4 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                        Coming Soon
-                      </span>
+                { icon: Search, title: t.exportProcess.step1, step: "01" },
+                { icon: ShieldCheck, title: t.exportProcess.step2, step: "02" },
+                { icon: Package, title: t.exportProcess.step3, step: "03" },
+                { icon: FileText, title: t.exportProcess.step4, step: "04" },
+                { icon: Globe, title: t.exportProcess.step5, step: "05" },
+              ].map((item, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  className="flex flex-col items-center text-center group"
+                >
+                  <div className="w-24 h-24 rounded-full bg-white border-4 border-gray-50 flex items-center justify-center mb-6 shadow-xl group-hover:border-secondary transition-all duration-300 relative">
+                    <item.icon size={32} className="text-primary" />
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-secondary text-white text-sm font-bold flex items-center justify-center">
+                      {item.step}
                     </div>
                   </div>
-                </div>
+                  <h4 className="text-lg font-serif text-primary font-medium">{item.title}</h4>
+                </motion.div>
               ))}
             </div>
           </div>

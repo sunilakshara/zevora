@@ -192,6 +192,7 @@ export default function ContactPage() {
                             { id: "cinnamon", label: t.products.cinnamon },
                             { id: "marine", label: t.products.marine },
                             { id: "beverages", label: t.products.beverages },
+                            { id: "meat", label: "Meat" },
                           ].find((p) => p.id === selectedProduct)?.label
                         }
                       </span>
@@ -210,7 +211,9 @@ export default function ContactPage() {
                         open: { opacity: 1, y: 0, display: "block" },
                         closed: { opacity: 0, y: -10, transitionEnd: { display: "none" } }
                       }}
-                      className="absolute left-0 right-0 top-full mt-2 bg-white border border-gray-100 shadow-2xl rounded-md z-50 overflow-hidden"
+                      onWheel={(e) => e.stopPropagation()}
+                      onTouchMove={(e) => e.stopPropagation()}
+                      className="absolute left-0 right-0 top-full mt-2 bg-white border border-gray-100 shadow-2xl rounded-md z-50 overflow-y-auto max-h-52 overscroll-contain touch-pan-y [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                     >
                       {[
                         { id: "cardamom", label: t.products.cardamom },
@@ -220,6 +223,7 @@ export default function ContactPage() {
                         { id: "cinnamon", label: t.products.cinnamon },
                         { id: "marine", label: t.products.marine },
                         { id: "beverages", label: t.products.beverages },
+                        { id: "meat", label: "Meat" },
                       ].map((item) => (
                         <button
                           key={item.id}

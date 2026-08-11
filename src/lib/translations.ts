@@ -10,6 +10,55 @@ export interface Translations {
     contact: string;
     requestQuote: string;
     tasteBeyondBorders: string;
+    whyUs: string;
+  };
+  whyChooseUs: {
+    title: string;
+    subtitle: string;
+    items: {
+      expertiseTitle: string;
+      expertiseDesc: string;
+      productsTitle: string;
+      productsDesc: string;
+      sourcingTitle: string;
+      sourcingDesc: string;
+      logisticsTitle: string;
+      logisticsDesc: string;
+      qualityTitle: string;
+      qualityDesc: string;
+      networkTitle: string;
+      networkDesc: string;
+      customerTitle: string;
+      customerDesc: string;
+      partnershipsTitle: string;
+      partnershipsDesc: string;
+      innovationTitle: string;
+      innovationDesc: string;
+    }
+  };
+  qualityPage: {
+    title: string;
+    commitmentTitle: string;
+    commitmentDesc: string;
+    assuranceTitle: string;
+    assuranceDesc: string;
+    labTestingTitle: string;
+    labTestingDesc: string;
+    documentationTitle: string;
+    documentationDesc: string;
+    standardsTitle: string;
+    standardsDesc: string;
+  };
+  sustainabilityPage: {
+    title: string;
+    subtitle: string;
+    initiativesTitle: string;
+    sourcingTitle: string;
+    sourcingDesc: string;
+    partnershipsTitle: string;
+    partnershipsDesc: string;
+    packagingTitle: string;
+    packagingDesc: string;
   };
   hero: {
     tagline: string;
@@ -82,6 +131,16 @@ export interface Translations {
     surfaceDesc: string;
     docTitle: string;
     docDesc: string;
+  };
+  exportProcess: {
+    title: string;
+    step1: string;
+    step2: string;
+    step3: string;
+    step4: string;
+    step5: string;
+  };
+  contact: {
     onTimeRate: string;
     verified: string;
   };
@@ -164,9 +223,59 @@ export const translations: Record<Locale, Translations> = {
       products: "Products",
       markets: "Markets",
       quality: "Quality",
+      sustainability: "Sustainability",
       contact: "Contact",
       requestQuote: "Request Quote",
       tasteBeyondBorders: "Taste Beyond Borders",
+      whyUs: "Why Choose Us",
+    },
+    whyChooseUs: {
+      title: "WHY ZEVORA GROUPE",
+      subtitle: "Every partnership we build is driven by authenticity, quality, responsible sourcing, and a commitment to delivering India's finest products to international markets.",
+      items: {
+        expertiseTitle: "International Expertise",
+        expertiseDesc: "Combining international market expertise with deep regional knowledge to build trusted trade relationships worldwide.",
+        productsTitle: "Premium Product Selection",
+        productsDesc: "Carefully sourced spices, seafood, food & beverages, and agricultural products selected for exceptional quality and authenticity.",
+        sourcingTitle: "Ethical & Sustainable Sourcing",
+        sourcingDesc: "Working closely with trusted producers who follow responsible and sustainable sourcing practices.",
+        logisticsTitle: "Reliable Logistics",
+        logisticsDesc: "Efficient export operations supported by dependable logistics and documentation for global delivery.",
+        qualityTitle: "Quality Assurance",
+        qualityDesc: "Every product is handled under strict quality standards to ensure freshness, consistency, and international compliance.",
+        networkTitle: "Trusted Global Trade Network",
+        networkDesc: "Building long-term relationships with buyers, distributors, wholesalers, and importers across international markets.",
+        customerTitle: "Customer-Centric Approach",
+        customerDesc: "Dedicated support, transparent communication, and customized solutions for every client.",
+        partnershipsTitle: "Long-Term Business Partnerships",
+        partnershipsDesc: "Focused on creating sustainable partnerships built on trust, integrity, and mutual growth.",
+        innovationTitle: "Innovation",
+        innovationDesc: "Continuously improving sourcing, trade processes, and customer experience through modern technologies.",
+      }
+    },
+    qualityPage: {
+      title: "Quality & Compliance",
+      commitmentTitle: "Our Commitment",
+      commitmentDesc: "At Zevora Groupe, quality is not just a promise; it is the foundation of our entire export operation. We maintain uncompromising standards from sourcing to final delivery.",
+      assuranceTitle: "Quality Assurance",
+      assuranceDesc: "Continuous monitoring and strict quality control protocols ensure that every product meets rigorous international standards before export.",
+      labTestingTitle: "Laboratory Testing",
+      labTestingDesc: "Comprehensive scientific analysis and purity verification through accredited third-party laboratories.",
+      documentationTitle: "Export Documentation",
+      documentationDesc: "Flawless customs handling, phytosanitary certifications, and meticulous tracking for seamless global delivery.",
+      standardsTitle: "International Standards Compliance",
+      standardsDesc: "Full adherence to ISO, HACCP, and specific destination country import regulations.",
+    },
+    sustainabilityPage: {
+      title: "Sustainability",
+      subtitle: "Committed to a better future.",
+      initiativesTitle: "Our Sustainability Initiatives",
+      sourcingTitle: "Sustainable Sourcing",
+      sourcingDesc: "We partner directly with farmers who employ eco-friendly agricultural practices, ensuring biodiversity and soil health.",
+      partnershipsTitle: "Ethical Partnerships",
+      partnershipsDesc: "Supporting local communities through fair trade principles and guaranteeing equitable compensation for all workers.",
+      packagingTitle: "Responsible Packaging",
+      packagingDesc: "Utilizing biodegradable materials and minimizing plastic use across our entire export supply chain.",
     },
     hero: {
       tagline: "PREMIUM INDIAN PRODUCTS",
@@ -244,8 +353,18 @@ export const translations: Record<Locale, Translations> = {
       seaCargoDesc: "Optimized bulk container transport with real-time IoT tracking and climate control.",
       surfaceTitle: "Priority Surface Logistics",
       surfaceDesc: "Reliable inland multimodal transportation connecting farm-gates directly to export terminals.",
-      docTitle: "Secure Documentation",
-      docDesc: "Full transparency in phytosanitary certificates, bill of lading, and automated customs clearance.",
+      docTitle: "Export Documentation",
+      docDesc: "Complete regulatory compliance, phytosanitary certifications, and smooth customs clearance.",
+    },
+    exportProcess: {
+      title: "Export Process",
+      step1: "Product Selection",
+      step2: "Quality Inspection",
+      step3: "Packaging",
+      step4: "Documentation",
+      step5: "International Shipping",
+    },
+    contact: {
       onTimeRate: "ON-TIME DELIVERY RATE",
       verified: "VERIFIED",
     },
@@ -327,11 +446,61 @@ export const translations: Record<Locale, Translations> = {
       home: "الرئيسية",
       about: "من نحن",
       products: "المنتجات",
-      markets: "الأسواق والخدمات",
+      markets: "الأسواق",
       quality: "الجودة",
+      sustainability: "الاستدامة",
       contact: "اتصل بنا",
       requestQuote: "طلب عرض سعر",
       tasteBeyondBorders: "نكهات تتخطى الحدود",
+      whyUs: "لماذا نحن",
+    },
+    whyChooseUs: {
+      title: "لماذا مجموعة زيفورا",
+      subtitle: "كل شراكة نبنيها مدفوعة بالأصالة والجودة والتوريد المسؤول والالتزام بتقديم أفضل منتجات الهند إلى الأسواق الدولية.",
+      items: {
+        expertiseTitle: "خبرة دولية",
+        expertiseDesc: "نجمع بين خبرة الأسواق الدولية والمعرفة الإقليمية العميقة لبناء علاقات تجارية موثوقة في جميع أنحاء العالم.",
+        productsTitle: "مجموعة منتجات فاخرة",
+        productsDesc: "توابل ومأكولات بحرية ومنتجات زراعية تم الحصول عليها بعناية لضمان الجودة الفائقة.",
+        sourcingTitle: "توريد أخلاقي ومستدام",
+        sourcingDesc: "نعمل عن كثب مع منتجين موثوقين يتبعون ممارسات توريد مسؤولة ومستدامة.",
+        logisticsTitle: "لوجستيات موثوقة",
+        logisticsDesc: "عمليات تصدير فعالة تدعمها لوجستيات ووثائق موثوقة للتسليم العالمي.",
+        qualityTitle: "ضمان الجودة",
+        qualityDesc: "يتم التعامل مع كل منتج وفق معايير جودة صارمة لضمان النضارة والاتساق والامتثال الدولي.",
+        networkTitle: "شبكة تجارة عالمية موثوقة",
+        networkDesc: "بناء علاقات طويلة الأمد مع المشترين والموزعين وتجار الجملة والمستوردين.",
+        customerTitle: "نهج يركز على العميل",
+        customerDesc: "دعم مخصص وتواصل شفاف وحلول مصممة خصيصًا لكل عميل.",
+        partnershipsTitle: "شراكات عمل طويلة الأمد",
+        partnershipsDesc: "نركز على إنشاء شراكات مستدامة مبنية على الثقة والنزاهة والنمو المتبادل.",
+        innovationTitle: "الابتكار",
+        innovationDesc: "تحسين مستمر لعمليات التوريد والتجارة وتجربة العملاء من خلال التقنيات الحديثة.",
+      }
+    },
+    qualityPage: {
+      title: "الجودة والامتثال",
+      commitmentTitle: "التزامنا",
+      commitmentDesc: "في مجموعة زيفورا، الجودة ليست مجرد وعد بل هي أساس عملية التصدير بأكملها. نحن نحافظ على معايير لا هوادة فيها من التوريد إلى التسليم النهائي.",
+      assuranceTitle: "ضمان الجودة",
+      assuranceDesc: "المراقبة المستمرة وبروتوكولات مراقبة الجودة الصارمة تضمن تلبية كل منتج للمعايير الدولية الصارمة قبل التصدير.",
+      labTestingTitle: "الاختبارات المعملية",
+      labTestingDesc: "تحليل علمي شامل والتحقق من النقاء من خلال مختبرات معتمدة تابعة لجهات خارجية.",
+      documentationTitle: "وثائق التصدير",
+      documentationDesc: "التعامل الخالي من العيوب مع الجمارك وشهادات الصحة النباتية والتتبع الدقيق لتسليم عالمي سلس.",
+      standardsTitle: "الامتثال للمعايير الدولية",
+      standardsDesc: "الالتزام الكامل بـ ISO و HACCP ولوائح الاستيراد الخاصة ببلد الوجهة.",
+    },
+    sustainabilityPage: {
+      title: "الاستدامة",
+      subtitle: "ملتزمون بمستقبل أفضل.",
+      initiativesTitle: "مبادراتنا للاستدامة",
+      sourcingTitle: "مصادر مستدامة",
+      sourcingDesc: "نحن نتشارك مباشرة مع المزارعين الذين يستخدمون ممارسات زراعية صديقة للبيئة، مما يضمن التنوع البيولوجي وصحة التربة.",
+      partnershipsTitle: "شراكات أخلاقية",
+      partnershipsDesc: "دعم المجتمعات المحلية من خلال مبادئ التجارة العادلة وضمان تعويض منصف لجميع العمال.",
+      packagingTitle: "تغليف مسؤول",
+      packagingDesc: "استخدام مواد قابلة للتحلل البيولوجي وتقليل استخدام البلاستيك عبر سلسلة توريد التصدير بأكملها.",
     },
     hero: {
       tagline: "منتجات هندية فاخرة",
@@ -409,8 +578,18 @@ export const translations: Record<Locale, Translations> = {
       seaCargoDesc: "نقل حاويات متطور مع تتبع آني عبر إنترنت الأشياء والتحكم بالمناخ.",
       surfaceTitle: "النقل البري ذو الأولوية",
       surfaceDesc: "نقل بري موثوق يربط المزارع مباشرة بالموانئ ومحطات التصدير.",
-      docTitle: "توثيق آمن وتخليص جمركي",
-      docDesc: "شفافية كاملة في الشهادات الصحية النباتية وسندات الشحن والتخليص الجمركي الفوري.",
+      docTitle: "وثائق التصدير",
+      docDesc: "امتثال تنظيمي كامل، شهادات صحة نباتية، وتخليص جمركي سلس.",
+    },
+    exportProcess: {
+      title: "عملية التصدير",
+      step1: "اختيار المنتج",
+      step2: "فحص الجودة",
+      step3: "التعبئة والتغليف",
+      step4: "التوثيق",
+      step5: "الشحن الدولي",
+    },
+    contact: {
       onTimeRate: "معدل التسليم في الوقت المحدد",
       verified: "معتمد",
     },
@@ -492,11 +671,61 @@ export const translations: Record<Locale, Translations> = {
       home: "Accueil",
       about: "À Propos",
       products: "Produits",
-      markets: "Marchés & Services",
+      markets: "Marchés",
       quality: "Qualité",
+      sustainability: "Durabilité",
       contact: "Contact",
       requestQuote: "Demander un Devis",
       tasteBeyondBorders: "Le Goût au-delà des Frontières",
+      whyUs: "Pourquoi Nous Choisir",
+    },
+    whyChooseUs: {
+      title: "POURQUOI ZEVORA GROUPE",
+      subtitle: "Chaque partenariat que nous établissons est guidé par l'authenticité, la qualité, un approvisionnement responsable et un engagement à livrer les meilleurs produits de l'Inde aux marchés internationaux.",
+      items: {
+        expertiseTitle: "Expertise Internationale",
+        expertiseDesc: "Combiner l'expertise des marchés internationaux avec une connaissance régionale approfondie pour bâtir des relations de confiance mondiales.",
+        productsTitle: "Sélection de Produits Premium",
+        productsDesc: "Des épices, des fruits de mer et des produits agricoles soigneusement sélectionnés pour leur qualité et leur authenticité exceptionnelles.",
+        sourcingTitle: "Approvisionnement Éthique & Durable",
+        sourcingDesc: "Travailler en étroite collaboration avec des producteurs de confiance qui suivent des pratiques responsables et durables.",
+        logisticsTitle: "Logistique Fiable",
+        logisticsDesc: "Des opérations d'exportation efficaces soutenues par une logistique et une documentation fiables pour une livraison mondiale.",
+        qualityTitle: "Assurance Qualité",
+        qualityDesc: "Chaque produit est manipulé selon des normes de qualité strictes pour assurer la fraîcheur, la constance et la conformité internationale.",
+        networkTitle: "Réseau Commercial Mondial de Confiance",
+        networkDesc: "Établir des relations à long terme avec les acheteurs, distributeurs, grossistes et importateurs à travers le monde.",
+        customerTitle: "Approche Axée sur le Client",
+        customerDesc: "Un soutien dédié, une communication transparente et des solutions personnalisées pour chaque client.",
+        partnershipsTitle: "Partenariats Commerciaux à Long Terme",
+        partnershipsDesc: "Axés sur la création de partenariats durables fondés sur la confiance, l'intégrité et la croissance mutuelle.",
+        innovationTitle: "Innovation",
+        innovationDesc: "Améliorer continuellement l'approvisionnement, les processus commerciaux et l'expérience client grâce aux technologies modernes.",
+      }
+    },
+    qualityPage: {
+      title: "Qualité et Conformité",
+      commitmentTitle: "Notre Engagement",
+      commitmentDesc: "Chez Zevora Groupe, la qualité n'est pas seulement une promesse; c'est le fondement de toute notre opération d'exportation. Nous maintenons des normes intransigeantes de l'approvisionnement à la livraison finale.",
+      assuranceTitle: "Assurance Qualité",
+      assuranceDesc: "Une surveillance continue et des protocoles de contrôle de qualité stricts garantissent que chaque produit répond à des normes internationales rigoureuses avant l'exportation.",
+      labTestingTitle: "Essais en Laboratoire",
+      labTestingDesc: "Analyse scientifique complète et vérification de la pureté par des laboratoires tiers accrédités.",
+      documentationTitle: "Documentation d'Exportation",
+      documentationDesc: "Gestion douanière irréprochable, certifications phytosanitaires et suivi méticuleux pour une livraison mondiale sans faille.",
+      standardsTitle: "Conformité aux Normes Internationales",
+      standardsDesc: "Adhésion totale aux normes ISO, HACCP et aux réglementations d'importation spécifiques du pays de destination.",
+    },
+    sustainabilityPage: {
+      title: "Durabilité",
+      subtitle: "Engagés pour un avenir meilleur.",
+      initiativesTitle: "Nos Initiatives de Durabilité",
+      sourcingTitle: "Approvisionnement Durable",
+      sourcingDesc: "Nous collaborons directement avec des agriculteurs qui emploient des pratiques agricoles respectueuses de l'environnement.",
+      partnershipsTitle: "Partenariats Éthiques",
+      partnershipsDesc: "Soutenir les communautés locales grâce aux principes du commerce équitable et garantir une rémunération juste.",
+      packagingTitle: "Emballage Responsable",
+      packagingDesc: "Utilisation de matériaux biodégradables et minimisation de l'utilisation de plastique dans toute notre chaîne d'approvisionnement.",
     },
     hero: {
       tagline: "PRODUITS INDIENS D'EXCEPTION",
@@ -574,8 +803,18 @@ export const translations: Record<Locale, Translations> = {
       seaCargoDesc: "Transport conteneurisé optimisé avec suivi IoT en temps réel et régulation thermique continue.",
       surfaceTitle: "Logistique Terrestre Prioritaire",
       surfaceDesc: "Réseau multimodal fiable reliant directement les exploitations agricoles aux terminaux d'exportation.",
-      docTitle: "Documentation Sécurisée",
-      docDesc: "Transparence absolue : certificats phytosanitaires, connaissements et dédouanement accéléré.",
+      docTitle: "Documentation d'Exportation",
+      docDesc: "Conformité réglementaire complète, certifications phytosanitaires et dédouanement fluide.",
+    },
+    exportProcess: {
+      title: "Processus d'Exportation",
+      step1: "Sélection des Produits",
+      step2: "Inspection de Qualité",
+      step3: "Emballage",
+      step4: "Documentation",
+      step5: "Expédition Internationale",
+    },
+    contact: {
       onTimeRate: "TAUX DE LIVRAISON DANS LES DÉLAIS",
       verified: "VÉRIFIÉ",
     },

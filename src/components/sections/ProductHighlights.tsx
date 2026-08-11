@@ -6,7 +6,7 @@ import { ArrowRight, ArrowLeft } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function ProductHighlights() {
-  const { t, isRTL } = useLanguage();
+  const { t, isRTL, locale } = useLanguage();
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
 
   const products = [
@@ -15,26 +15,33 @@ export default function ProductHighlights() {
       tagline: t.products.cardamomDesc,
       image: "/images/cardamom.webp",
       size: "large",
-      href: "/products",
+      href: `/${locale}/products`,
     },
     {
       name: t.products.blackPepper,
       tagline: t.products.blackPepperDesc,
       image: "/images/black_pepper.webp",
       size: "small",
-      href: "/products",
+      href: `/${locale}/products`,
     },
     {
       name: t.products.cloves,
       tagline: t.products.clovesDesc,
       image: "/images/cloves.webp",
       size: "small",
-      href: "/products",
+      href: `/${locale}/products`,
+    },
+    {
+      name: t.products.cinnamon,
+      tagline: t.products.cinnamonDesc,
+      image: "/images/cinnamon.webp",
+      size: "large",
+      href: `/${locale}/products`,
     },
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section className="pt-12 md:pt-16 pb-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6 md:gap-8">
           <div className="max-w-2xl">
@@ -49,7 +56,7 @@ export default function ProductHighlights() {
             </p>
           </div>
           <Link
-            href="/products"
+            href={`/${locale}/products`}
             className="flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs hover:text-secondary transition-colors group shrink-0"
           >
             <span>{t.products.viewAll}</span>
@@ -92,9 +99,7 @@ export default function ProductHighlights() {
                       {product.tagline}
                     </p>
                   </div>
-                  <div className="w-12 h-12 rounded-full border border-white/30 flex items-center justify-center text-white group-hover:bg-secondary group-hover:border-secondary group-hover:text-primary-dark transition-all shrink-0">
-                    <ArrowIcon size={18} />
-                  </div>
+
                 </div>
               </Link>
             </motion.div>

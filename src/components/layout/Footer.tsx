@@ -42,7 +42,7 @@ export default function Footer() {
           <ul className="space-y-4 text-sm text-white/60">
             <li className="flex gap-3"><MapPin size={16} className="text-secondary shrink-0 mt-0.5" /> Cochin, India (HQ)</li>
             <li className="flex gap-3"><MapPin size={16} className="text-secondary shrink-0 mt-0.5" /> Dubai, UAE</li>
-            <li className="flex gap-3"><MapPin size={16} className="text-secondary shrink-0 mt-0.5" /> Singapore</li>
+            <li className="flex gap-3"><MapPin size={16} className="text-secondary shrink-0 mt-0.5" /> France</li>
           </ul>
         </div>
 

@@ -150,6 +150,90 @@ export default function ProductsPage() {
             </motion.article>
           ))}
         </div>
+        
+        {/* Coming Soon Section */}
+        <div className="mt-24">
+          <div className="text-center mb-12">
+            <span className="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-4 block">
+              Coming Soon
+            </span>
+            <h2 className="text-primary text-3xl md:text-4xl font-serif">Future Expansions</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Seafood */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden group cursor-pointer rounded-sm h-[300px] md:h-[400px]"
+            >
+              <img
+                src="/images/seafood.webp"
+                alt="Seafood"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-[#081C3A]/40 group-hover:bg-[#081C3A]/70 transition-colors duration-500" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                <h3 className="text-white text-3xl md:text-4xl font-serif tracking-wide transition-transform duration-500 group-hover:-translate-y-4">
+                  Seafood
+                </h3>
+                <span className="text-secondary font-bold tracking-[0.2em] uppercase text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 absolute mt-16">
+                  Coming Soon
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Food & Beverages */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden group cursor-pointer rounded-sm h-[300px] md:h-[400px]"
+            >
+              <img
+                src="/images/beverages.webp"
+                alt="Food & Beverages"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-[#081C3A]/60 group-hover:bg-[#081C3A]/80 transition-colors duration-500" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                <h3 className="text-white text-3xl md:text-4xl font-serif tracking-wide transition-transform duration-500 group-hover:-translate-y-4">
+                  Food & Beverages
+                </h3>
+                <span className="text-secondary font-bold tracking-[0.2em] uppercase text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 absolute mt-16">
+                  Coming Soon
+                </span>
+              </div>
+            </motion.div>
+
+            {/* Meat */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden group cursor-pointer rounded-sm h-[300px] md:h-[400px]"
+            >
+              <img
+                src="/images/meat.png"
+                alt="Meat"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-[#081C3A]/60 group-hover:bg-[#081C3A]/80 transition-colors duration-500" />
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                <h3 className="text-white text-3xl md:text-4xl font-serif tracking-wide transition-transform duration-500 group-hover:-translate-y-4">
+                  Meat
+                </h3>
+                <span className="text-secondary font-bold tracking-[0.2em] uppercase text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 absolute mt-16">
+                  Coming Soon
+                </span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </div>
   );

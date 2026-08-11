@@ -28,7 +28,7 @@ export default function AboutPreview() {
   ];
 
   return (
-    <section className="relative py-20 md:py-28 bg-[#FAF8F5] text-primary overflow-hidden">
+    <section className="relative pt-20 md:pt-28 pb-12 md:pb-16 bg-[#FAF8F5] text-primary overflow-hidden">
       {/* Delicate Botanical Leaf Line Illustration in Background */}
       <div className="absolute top-8 left-4 w-72 h-72 opacity-15 pointer-events-none text-secondary">
         <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.2">
@@ -111,14 +111,6 @@ export default function AboutPreview() {
                 <p className="text-sm text-gray-500 leading-relaxed font-sans">
                   {item.desc}
                 </p>
-              </div>
-              <div className="mt-6 pt-6 border-t border-gray-100 flex items-center justify-between">
-                <Link
-                  href="/about"
-                  className="text-[11px] font-bold tracking-[0.15em] text-secondary uppercase flex items-center gap-2 group-hover:gap-3 transition-all"
-                >
-                  {t.aboutPreview.exploreHeritage} <ArrowIcon size={14} />
-                </Link>
               </div>
             </motion.div>
           ))}

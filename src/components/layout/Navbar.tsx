@@ -23,6 +23,9 @@ export default function Navbar() {
     { name: t.nav.home, href: "/" },
     { name: t.nav.about, href: "/about" },
     { name: t.nav.products, href: "/products" },
+    { name: t.nav.whyUs, href: "/why-choose-us" },
+    { name: t.nav.quality, href: "/quality-compliance" },
+    { name: t.nav.sustainability, href: "/sustainability" },
     { name: t.nav.markets, href: "/services" },
     { name: t.nav.contact, href: "/contact" },
   ];
