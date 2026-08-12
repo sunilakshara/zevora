@@ -5,7 +5,9 @@ import { useScroll, useTransform, motion } from "framer-motion";
 
 export default function MobileScrollVideo() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [totalFrames, setTotalFrames] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(0);
   
   // Track scroll progress of this specific container
   const { scrollYProgress } = useScroll({
@@ -13,85 +15,129 @@ export default function MobileScrollVideo() {
     offset: ["start end", "end start"],
   });
 
-  // Keep a local ref of the scroll progress to update video in rAF
+  // Keep a local ref of the scroll progress
   const progressRef = useRef(0);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
   
-  // To handle the video loading state
-  const [isLoaded, setIsLoaded] = useState(false);
-
+  // Update progress ref when scroll changes
   useEffect(() => {
-    // Subscribe to scroll progress and store it
     const unsubscribe = scrollYProgress.onChange((latest) => {
       progressRef.current = latest;
     });
     return () => unsubscribe();
   }, [scrollYProgress]);
 
+  // Load images
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    // 120fps extraction resulted in exactly 1200 frames
+    const frameCount = 1200;
+    setTotalFrames(frameCount);
+
+    let loadedCount = 0;
+    const loadedImages: HTMLImageElement[] = [];
+
+    // Preload frames 
+    // We only load every 2nd or 3rd frame initially to speed up the loader,
+    // but for "buttery smooth" we'll load them all. Given 1200 frames, it may take a few seconds.
+    for (let i = 1; i <= frameCount; i++) {
+      const img = new Image();
+      const frameNum = i.toString().padStart(4, '0');
+      img.src = `/frames/frame_${frameNum}.webp`;
+      
+      img.onload = () => {
+        loadedCount++;
+        setImagesLoaded(loadedCount);
+      };
+      
+      loadedImages.push(img);
+    }
+    
+    imagesRef.current = loadedImages;
+  }, []);
+
+  // Canvas render loop
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
     let animationFrameId: number;
-    let lastTime = -1;
+    let lastRenderedFrame = -1;
 
-    // The core render loop
     const renderLoop = () => {
-      // Only process if video is loaded and has a valid duration
-      if (video.duration && !Number.isNaN(video.duration)) {
-        // Calculate the target time based on scroll progress
-        const targetTime = progressRef.current * video.duration;
+      if (imagesRef.current.length > 0 && totalFrames > 0) {
+        // Calculate target frame index
+        const targetFrame = Math.min(
+          totalFrames - 1,
+          Math.max(0, Math.floor(progressRef.current * totalFrames))
+        );
         
-        // Only update currentTime if it has changed enough to warrant an update
-        // This prevents unnecessary DOM writes and improves smoothness
-        if (Math.abs(lastTime - targetTime) > 0.01) {
-          video.currentTime = targetTime;
-          lastTime = targetTime;
+        // Only redraw if frame changed
+        if (targetFrame !== lastRenderedFrame) {
+          const img = imagesRef.current[targetFrame];
+          if (img && img.complete && img.naturalWidth > 0) {
+            // Draw image to cover canvas (like object-fit: cover)
+            const canvasRatio = canvas.width / canvas.height;
+            const imgRatio = img.width / img.height;
+            
+            let drawWidth = canvas.width;
+            let drawHeight = canvas.height;
+            let offsetX = 0;
+            let offsetY = 0;
+
+            if (canvasRatio > imgRatio) {
+              drawHeight = canvas.width / imgRatio;
+              offsetY = (canvas.height - drawHeight) / 2;
+            } else {
+              drawWidth = canvas.height * imgRatio;
+              offsetX = (canvas.width - drawWidth) / 2;
+            }
+
+            // High quality drawing for smooth results
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = "high";
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+            lastRenderedFrame = targetFrame;
+          }
         }
       }
       
       animationFrameId = requestAnimationFrame(renderLoop);
     };
 
-    // Preload video and start loop
-    const handleLoadedMetadata = () => {
-      setIsLoaded(true);
-      // Optional: draw first frame immediately
-      video.currentTime = 0;
-    };
-
-    video.addEventListener('loadedmetadata', handleLoadedMetadata);
-    
-    // Kick off the loop
     animationFrameId = requestAnimationFrame(renderLoop);
 
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-    };
-  }, []);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [totalFrames]);
+
+  // Determine loaded percentage for the loader
+  const loadPercentage = totalFrames > 0 ? Math.round((imagesLoaded / totalFrames) * 100) : 0;
+  const isReady = loadPercentage > 10; // Start showing once 10% is loaded to avoid long wait
 
   return (
     <div 
       ref={containerRef} 
       className="md:hidden relative w-full"
-      style={{ height: "150vh" }} // Allow scroll room to scrub through the video
+      style={{ height: "200vh" }} // Extra height for a longer, slower scroll scrub through the 120fps video
     >
       <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-black">
-        {/* Loading placeholder */}
-        {!isLoaded && (
-          <div className="absolute inset-0 flex items-center justify-center z-10">
+        
+        {/* Loader */}
+        {!isReady && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-4">
             <div className="w-8 h-8 border-2 border-secondary border-t-transparent rounded-full animate-spin" />
+            <p className="text-secondary/80 text-xs tracking-widest uppercase">Optimizing 120FPS ({loadPercentage}%)</p>
           </div>
         )}
         
-        <video
-          ref={videoRef}
-          src="/videos/hero_scroll.mp4"
-          className="w-full h-full object-cover opacity-90"
-          playsInline
-          muted
-          preload="auto"
-          // We don't autoplay, we scrub manually
+        <canvas
+          ref={canvasRef}
+          width={720}
+          height={1280}
+          className={`w-full h-full object-cover transition-opacity duration-1000 ${isReady ? 'opacity-90' : 'opacity-0'}`}
         />
         
         {/* Overlay gradient for readability */}
