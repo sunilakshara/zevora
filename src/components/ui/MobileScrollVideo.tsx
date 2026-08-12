@@ -12,7 +12,7 @@ export default function MobileScrollVideo() {
   // Track scroll progress of this specific container
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"],
+    offset: ["start start", "end end"],
   });
 
   // Apply a spring physics model to smooth out scroll lag/choppiness
