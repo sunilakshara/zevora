@@ -6,9 +6,10 @@ const path = require('path');
 const videoPath = path.join(__dirname, 'public', 'videos', 'hero_desktop.mp4');
 const outDir = path.join(__dirname, 'public', 'desktop_frames');
 
-if (!fs.existsSync(outDir)) {
-  fs.mkdirSync(outDir, { recursive: true });
+if (fs.existsSync(outDir)) {
+  fs.rmSync(outDir, { recursive: true, force: true });
 }
+fs.mkdirSync(outDir, { recursive: true });
 
 console.log('Extracting desktop frames at 120fps...');
 
@@ -21,10 +22,10 @@ try {
   probeOutput = e.stderr || e.stdout || '';
 }
 
-console.log('Video info detected. Starting extraction...');
+console.log('Video info detected. Starting extraction at 12 FPS (120 frames)...');
 
-// Extract at 120fps, scale to 1280 wide (HD desktop), quality 60
-const command = `"${ffmpeg}" -i "${videoPath}" -vf "scale=1280:-1,fps=120" -vcodec libwebp -q:v 60 "${path.join(outDir, 'frame_%04d.webp')}"`;
+// Extract at 12fps, scale to 1280 wide (HD desktop), quality 60
+const command = `"${ffmpeg}" -i "${videoPath}" -vf "scale=1280:-1,fps=12" -vcodec libwebp -q:v 60 "${path.join(outDir, 'frame_%04d.webp')}"`;
 
 try {
   execSync(command, { stdio: 'inherit' });

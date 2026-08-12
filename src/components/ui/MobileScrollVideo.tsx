@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 
 export default function MobileScrollVideo() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -15,17 +15,24 @@ export default function MobileScrollVideo() {
     offset: ["start end", "end start"],
   });
 
+  // Apply a spring physics model to smooth out scroll lag/choppiness
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   // Keep a local ref of the scroll progress
   const progressRef = useRef(0);
   const imagesRef = useRef<HTMLImageElement[]>([]);
   
   // Update progress ref when scroll changes
   useEffect(() => {
-    const unsubscribe = scrollYProgress.onChange((latest) => {
+    const unsubscribe = smoothProgress.on("change", (latest) => {
       progressRef.current = latest;
     });
     return () => unsubscribe();
-  }, [scrollYProgress]);
+  }, [smoothProgress]);
 
   // Load images
   useEffect(() => {

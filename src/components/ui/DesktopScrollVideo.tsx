@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { useParams } from "next/navigation";
@@ -18,20 +18,27 @@ export default function DesktopScrollVideo() {
     offset: ["start start", "end end"],
   });
 
+  // Apply a spring physics model to smooth out scroll lag/choppiness
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const progressRef = useRef(0);
   const imagesRef = useRef<HTMLImageElement[]>([]);
 
-  // Subscribe to scroll progress
+  // Subscribe to smoothed scroll progress
   useEffect(() => {
-    const unsubscribe = scrollYProgress.on("change", (latest) => {
+    const unsubscribe = smoothProgress.on("change", (latest) => {
       progressRef.current = latest;
     });
     return () => unsubscribe();
-  }, [scrollYProgress]);
+  }, [smoothProgress]);
 
   // Preload all WebP frames
   useEffect(() => {
-    const frameCount = 1200; // 120fps × 10s
+    const frameCount = 120; // 12fps × 10s
     setTotalFrames(frameCount);
 
     let loadedCount = 0;
