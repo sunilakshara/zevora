@@ -36,18 +36,33 @@ export default function MobileScrollVideo() {
     let loadedCount = 0;
     const imgs: HTMLImageElement[] = [];
 
-    for (let i = 1; i <= frameCount; i++) {
-      const img = new Image();
-      const padded = String(i).padStart(4, '0');
-      img.src = `/mobile_frames/frame_${padded}.webp`;
-      
-      img.onload = () => {
-        loadedCount++;
-        setImagesLoaded(loadedCount);
-      };
-      
-      imgs.push(img);
-    }
+    // Preload frames in batches of 50 to prevent mobile browser network queues from freezing
+    const batchSize = 50;
+
+    const loadBatch = (start: number) => {
+      const end = Math.min(start + batchSize - 1, frameCount);
+      for (let i = start; i <= end; i++) {
+        const img = new Image();
+        const padded = String(i).padStart(4, '0');
+        img.src = `/mobile_frames/frame_${padded}.webp`;
+        
+        const onComplete = () => {
+          loadedCount++;
+          setImagesLoaded(loadedCount);
+          // If this batch is done, load the next batch
+          if (loadedCount % batchSize === 0 && loadedCount < frameCount) {
+            loadBatch(loadedCount + 1);
+          }
+        };
+        
+        img.onload = onComplete;
+        img.onerror = onComplete; // proceed even if one fails
+        
+        imgs.push(img);
+      }
+    };
+
+    loadBatch(1);
     
     imagesRef.current = imgs;
   }, []);
@@ -112,7 +127,9 @@ export default function MobileScrollVideo() {
 
   // Determine loaded percentage for the loader
   const loadPercentage = totalFrames > 0 ? Math.round((imagesLoaded / totalFrames) * 100) : 0;
-  const isReady = loadPercentage > 10; // Start showing once 10% is loaded to avoid long wait
+  // Mobile needs to start sooner to prevent users from staring at the loader. 
+  // As soon as 30 frames are ready, let's start the experience!
+  const isReady = imagesLoaded > 30; // Start showing once 10% is loaded to avoid long wait
 
   return (
     <div 
