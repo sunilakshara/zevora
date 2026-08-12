@@ -36,21 +36,42 @@ export default function MobileScrollVideo() {
     let loadedCount = 0;
     const loadedImages: HTMLImageElement[] = [];
 
-    // Preload frames 
-    // We only load every 2nd or 3rd frame initially to speed up the loader,
-    // but for "buttery smooth" we'll load them all. Given 1200 frames, it may take a few seconds.
-    for (let i = 1; i <= frameCount; i++) {
-      const img = new Image();
-      const frameNum = i.toString().padStart(4, '0');
-      img.src = `/mobile_frames/frame_${frameNum}.webp`;
-      
-      img.onload = () => {
-        loadedCount++;
-        setImagesLoaded(loadedCount);
-      };
-      
-      loadedImages.push(img);
-    }
+    // Preload frames in batches to avoid overwhelming mobile browser network/memory
+    let currentBatch = 0;
+    const batchSize = 50;
+
+    const loadBatch = (start: number) => {
+      const end = Math.min(start + batchSize - 1, frameCount);
+      for (let i = start; i <= end; i++) {
+        const img = new Image();
+        const frameNum = i.toString().padStart(4, '0');
+        img.src = `/mobile_frames/frame_${frameNum}.webp`;
+        
+        img.onload = () => {
+          loadedCount++;
+          setImagesLoaded(loadedCount);
+          
+          // Load next batch when current is done
+          if (loadedCount % batchSize === 0 && loadedCount < frameCount) {
+            loadBatch(loadedCount + 1);
+          }
+        };
+        
+        img.onerror = () => {
+          // If a frame fails, just increment so we don't stall the batch loader
+          loadedCount++;
+          setImagesLoaded(loadedCount);
+          if (loadedCount % batchSize === 0 && loadedCount < frameCount) {
+            loadBatch(loadedCount + 1);
+          }
+        };
+
+        loadedImages.push(img);
+      }
+    };
+
+    // Start loading first batch
+    loadBatch(1);
     
     imagesRef.current = loadedImages;
   }, []);
