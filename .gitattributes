@@ -5,9 +5,9 @@ src/app/icon.png !filter !diff !merge text=auto
 src/app/apple-icon.png !filter !diff !merge text=auto
 public/logo.png !filter !diff !merge text=auto
 image.png !filter !diff !merge text=auto
-
 src/app/opengraph-image.png !filter !diff !merge text=auto
 src/app/twitter-image.png !filter !diff !merge text=auto
 public/vercel.png !filter !diff !merge text=auto
 public/globe.png !filter !diff !merge text=auto
 public/images/*.png !filter !diff !merge text=auto
+*.mp4 filter=lfs diff=lfs merge=lfs -text
