@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, Variants } from "framer-motion";
 import { useLanguage } from "@/context/LanguageContext";
 import Image from "next/image";
 
@@ -73,7 +73,7 @@ export default function WhyChooseUsPage() {
     }
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -84,7 +84,7 @@ export default function WhyChooseUsPage() {
     }
   };
 
-  const letterVariants = {
+  const letterVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -96,7 +96,7 @@ export default function WhyChooseUsPage() {
     }
   };
 
-  const lineVariants = {
+  const lineVariants: Variants = {
     hidden: { scaleX: 0, opacity: 0 },
     visible: { 
       scaleX: 1, 
