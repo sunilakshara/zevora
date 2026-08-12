@@ -29,42 +29,30 @@ export default function MobileScrollVideo() {
 
   // Load images
   useEffect(() => {
-    // 120fps extraction resulted in exactly 1200 frames
-    const frameCount = 1200;
+    // Using 120 total frames for mobile to avoid memory crashes, while still providing smooth scrubbing
+    const frameCount = 120;
     setTotalFrames(frameCount);
 
     let loadedCount = 0;
-    const imgs: HTMLImageElement[] = [];
+    const loadedImages: HTMLImageElement[] = [];
 
-    // Preload frames in batches of 50 to prevent mobile browser network queues from freezing
-    const batchSize = 50;
-
-    const loadBatch = (start: number) => {
-      const end = Math.min(start + batchSize - 1, frameCount);
-      for (let i = start; i <= end; i++) {
-        const img = new Image();
-        const padded = String(i).padStart(4, '0');
-        img.src = `/mobile_frames/frame_${padded}.webp`;
-        
-        const onComplete = () => {
-          loadedCount++;
-          setImagesLoaded(loadedCount);
-          // If this batch is done, load the next batch
-          if (loadedCount % batchSize === 0 && loadedCount < frameCount) {
-            loadBatch(loadedCount + 1);
-          }
-        };
-        
-        img.onload = onComplete;
-        img.onerror = onComplete; // proceed even if one fails
-        
-        imgs.push(img);
-      }
-    };
-
-    loadBatch(1);
+    // Preload frames 
+    // We only load every 2nd or 3rd frame initially to speed up the loader,
+    // but for "buttery smooth" we'll load them all. Given 1200 frames, it may take a few seconds.
+    for (let i = 1; i <= frameCount; i++) {
+      const img = new Image();
+      const frameNum = i.toString().padStart(4, '0');
+      img.src = `/mobile_frames/frame_${frameNum}.webp`;
+      
+      img.onload = () => {
+        loadedCount++;
+        setImagesLoaded(loadedCount);
+      };
+      
+      loadedImages.push(img);
+    }
     
-    imagesRef.current = imgs;
+    imagesRef.current = loadedImages;
   }, []);
 
   // Canvas render loop
@@ -127,9 +115,7 @@ export default function MobileScrollVideo() {
 
   // Determine loaded percentage for the loader
   const loadPercentage = totalFrames > 0 ? Math.round((imagesLoaded / totalFrames) * 100) : 0;
-  // Mobile needs to start sooner to prevent users from staring at the loader. 
-  // As soon as 30 frames are ready, let's start the experience!
-  const isReady = imagesLoaded > 30; // Start showing once 10% is loaded to avoid long wait
+  const isReady = loadPercentage > 10; // Start showing once 10% is loaded to avoid long wait
 
   return (
     <div 
