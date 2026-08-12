@@ -142,8 +142,7 @@ export default function MobileScrollVideo() {
           className={`w-full h-full object-cover transition-opacity duration-1000 ${isReady ? 'opacity-90' : 'opacity-0'}`}
         />
         
-        {/* Overlay gradient for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+
         
         <div className="absolute bottom-12 left-0 w-full px-6 z-20 text-center">
           <motion.h2 
