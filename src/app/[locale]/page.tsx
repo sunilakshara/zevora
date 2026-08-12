@@ -4,6 +4,7 @@ import TasteBeyondBordersHero from "@/components/sections/TasteBeyondBordersHero
 import AboutPreview from "@/components/sections/AboutPreview";
 import ProductHighlights from "@/components/sections/ProductHighlights";
 import MobileScrollVideo from "@/components/ui/MobileScrollVideo";
+import DesktopScrollVideo from "@/components/ui/DesktopScrollVideo";
 import { CheckCircle2, Globe2, Ship, Truck, ShieldCheck, Microscope } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
@@ -13,17 +14,17 @@ export default function Home() {
 
   return (
     <div className="flex flex-col w-full">
-      {/* Premium Hero Section matching user design */}
-      <TasteBeyondBordersHero />
+      {/* Desktop Hero — Cinematic 120fps Canvas Scroll Video */}
+      <DesktopScrollVideo />
+
+      {/* Mobile Hero — Interactive Scroll Video */}
+      <MobileScrollVideo />
 
       {/* About Transition Section */}
       <AboutPreview />
 
       {/* Product Showcase Section */}
       <ProductHighlights />
-
-      {/* Mobile-Only Interactive Scroll Video */}
-      <MobileScrollVideo />
 
       {/* Logistics Section */}
       <section className="py-16 md:py-24 bg-primary text-white">
