@@ -2,8 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useScroll, useTransform, motion } from "framer-motion";
+import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
+import { useParams } from "next/navigation";
 
 export default function DesktopScrollVideo() {
+  const { locale } = useParams();
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [totalFrames, setTotalFrames] = useState(0);
@@ -105,7 +109,7 @@ export default function DesktopScrollVideo() {
   const headlineOpacity = useTransform(scrollYProgress, [0.05, 0.15, 0.45, 0.55], [0, 1, 1, 0]);
   const headlineY       = useTransform(scrollYProgress, [0.05, 0.15, 0.45, 0.55], [40, 0, 0, -40]);
   const descOpacity     = useTransform(scrollYProgress, [0.1, 0.2, 0.4, 0.5], [0, 1, 1, 0]);
-  const ctaOpacity      = useTransform(scrollYProgress, [0.15, 0.25, 0.4, 0.5], [0, 1, 1, 0]);
+  const ctaOpacity      = useTransform(scrollYProgress, [0.48, 0.58], [0, 1]);
 
   // Subtle scroll progress bar at the bottom
   const progressBarWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
@@ -141,11 +145,10 @@ export default function DesktopScrollVideo() {
           className={`w-full h-full object-cover transition-opacity duration-1000 ${isReady ? "opacity-100" : "opacity-0"}`}
         />
 
-        {/* Dark vignette overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#06111f]/90 via-[#06111f]/20 to-[#06111f]/50 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06111f]/60 via-transparent to-[#06111f]/30 pointer-events-none" />
+        {/* Subtle bottom fade only */}
+        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
 
-        {/* Centered hero text that fades in then out */}
+        {/* Left-aligned hero text */}
         <div className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none px-16 max-w-6xl">
           <motion.span
             style={{ opacity: taglineOpacity, y: taglineY }}
@@ -164,23 +167,24 @@ export default function DesktopScrollVideo() {
 
           <motion.p
             style={{ opacity: descOpacity }}
-            className="text-white/60 text-base xl:text-lg max-w-xl leading-relaxed font-light mb-10"
+            className="text-white/60 text-base xl:text-lg max-w-xl leading-relaxed font-light"
           >
             From warehouse floor to global port, Zevora Groupe operates a seamless supply chain
             trusted across 42 countries and 5 continents.
           </motion.p>
+        </div>
 
-          <motion.div style={{ opacity: ctaOpacity }}>
-            <a
-              href="#about"
-              className="pointer-events-auto inline-flex items-center gap-3 border border-secondary/60 text-secondary hover:bg-secondary hover:text-primary transition-all duration-300 text-xs font-bold tracking-[0.25em] uppercase px-8 py-4 rounded-none"
-            >
-              Discover More
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="group-hover:translate-x-1 transition-transform">
-                <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </a>
-          </motion.div>
+        {/* Bottom-right CTA — permanently pinned, always visible */}
+        <div className="absolute bottom-12 right-12 z-50">
+          <Link
+            href={`/${locale}/products`}
+            className="inline-flex items-center gap-4 bg-secondary text-primary text-xs font-black tracking-[0.3em] uppercase px-10 py-5 shadow-[0_8px_40px_rgba(0,0,0,0.6),0_0_40px_rgba(212,175,55,0.4)] hover:bg-secondary/90 hover:shadow-[0_8px_60px_rgba(0,0,0,0.7),0_0_60px_rgba(212,175,55,0.6)] transition-all duration-300 cursor-pointer"
+          >
+            Discover More
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </Link>
         </div>
 
         {/* Scroll progress bar at very bottom */}

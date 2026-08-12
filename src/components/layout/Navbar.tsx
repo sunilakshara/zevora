@@ -42,29 +42,29 @@ export default function Navbar() {
       }`}
       style={{ backgroundColor: '#04133b' }}
     >
-      <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
-        {/* Logo — transparent PNG, blends with bg */}
-        <Link href="/" className="flex items-center group shrink-0">
-          <div className="relative h-24 md:h-28 w-48 md:w-56 flex shrink-0">
+      <div className="w-full px-8 lg:px-12 flex items-center gap-8">
+        {/* Logo — far left */}
+        <Link href="/" className="flex items-center group shrink-0 mr-4">
+          <div className="relative h-20 md:h-24 w-40 md:w-48 flex shrink-0">
             <Image
               src="/logo.png"
               alt="Zevora Groupe Logo"
               fill
               quality={100}
               priority
-              className="object-contain"
+              className="object-contain object-left"
               style={{ filter: 'drop-shadow(0 2px 12px rgba(212,175,55,0.25))' }}
             />
           </div>
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-7">
+        {/* Desktop Links — centered with generous spacing */}
+        <div className="hidden lg:flex items-center gap-10 flex-1 justify-center">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={`/${locale}${link.href === "/" ? "" : link.href}`}
-              className="text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors text-white/80 hover:text-secondary"
+              className="text-[11px] font-semibold uppercase tracking-[0.2em] transition-colors text-white/75 hover:text-secondary whitespace-nowrap"
             >
               {link.name}
             </Link>
@@ -72,10 +72,10 @@ export default function Navbar() {
         </div>
 
         {/* Right CTA & Language */}
-        <div className="hidden sm:flex items-center gap-5">
+        <div className="hidden sm:flex items-center gap-6 shrink-0 ml-4">
           <Link
             href={`/${locale}/contact`}
-            className="border border-secondary text-secondary hover:bg-secondary hover:text-primary-dark text-[11px] font-bold tracking-[0.15em] uppercase px-5 py-2.5 rounded-sm transition-all duration-200 shadow-sm"
+            className="border border-secondary text-secondary hover:bg-secondary hover:text-primary-dark text-[11px] font-bold tracking-[0.15em] uppercase px-6 py-3 rounded-sm transition-all duration-200 shadow-sm"
           >
             {t.nav.requestQuote}
           </Link>

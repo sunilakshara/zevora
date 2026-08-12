@@ -42,7 +42,7 @@ export default function MobileScrollVideo() {
     for (let i = 1; i <= frameCount; i++) {
       const img = new Image();
       const frameNum = i.toString().padStart(4, '0');
-      img.src = `/frames/frame_${frameNum}.webp`;
+      img.src = `/mobile_frames/frame_${frameNum}.webp`;
       
       img.onload = () => {
         loadedCount++;
