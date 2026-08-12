@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Check } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
@@ -44,12 +45,17 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         {/* Logo — transparent PNG, blends with bg */}
         <Link href="/" className="flex items-center group shrink-0">
-          <img
-            src="/logo.png"
-            alt="Zevora Groupe Logo"
-            className="h-24 md:h-28 w-auto object-contain"
-            style={{ filter: 'drop-shadow(0 2px 12px rgba(212,175,55,0.25))' }}
-          />
+          <div className="relative h-24 md:h-28 w-48 md:w-56 flex shrink-0">
+            <Image
+              src="/logo.png"
+              alt="Zevora Groupe Logo"
+              fill
+              quality={100}
+              priority
+              className="object-contain"
+              style={{ filter: 'drop-shadow(0 2px 12px rgba(212,175,55,0.25))' }}
+            />
+          </div>
         </Link>
 
         {/* Desktop Links */}

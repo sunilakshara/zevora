@@ -3,6 +3,7 @@
 import TasteBeyondBordersHero from "@/components/sections/TasteBeyondBordersHero";
 import AboutPreview from "@/components/sections/AboutPreview";
 import ProductHighlights from "@/components/sections/ProductHighlights";
+import MobileScrollVideo from "@/components/ui/MobileScrollVideo";
 import { CheckCircle2, Globe2, Ship, Truck, ShieldCheck, Microscope } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import Link from "next/link";
@@ -20,6 +21,9 @@ export default function Home() {
 
       {/* Product Showcase Section */}
       <ProductHighlights />
+
+      {/* Mobile-Only Interactive Scroll Video */}
+      <MobileScrollVideo />
 
       {/* Logistics Section */}
       <section className="py-16 md:py-24 bg-primary text-white">

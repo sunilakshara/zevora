@@ -45,17 +45,51 @@ export default function QualityCompliancePage() {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.04,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const letterVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const lineVariants = {
+    hidden: { scaleX: 0, opacity: 0 },
+    visible: { 
+      scaleX: 1, 
+      opacity: 1,
+      transition: { duration: 1, delay: 0.8, ease: "easeInOut" }
+    }
+  };
+
   const titleWords = t.qualityPage.title.split(' ');
+  const firstPart = titleWords.slice(0, titleWords.length - 1).join(" ");
+  const lastPart = titleWords[titleWords.length - 1] || "";
   
   return (
     <div className="bg-background min-h-screen text-foreground font-sans selection:bg-secondary/30" ref={containerRef}>
       
       {/* Editorial Hero Section */}
-      <section className="relative h-[70vh] flex flex-col items-center justify-center overflow-hidden px-6">
+      <section className="relative min-h-[70vh] flex flex-col items-center justify-center overflow-hidden px-6 pt-32 pb-12">
         <div className="absolute inset-0 z-0">
           <Image 
-            src="/images/cardamom.webp"
-            alt="Quality Background"
+            src="/images/hero_enhanced_bg_hd.webp"
+            alt="Quality and Compliance"
             fill
             className="object-cover opacity-10 scale-105"
             priority
@@ -63,28 +97,38 @@ export default function QualityCompliancePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background z-10"></div>
         </div>
 
-        <div className="relative z-20 text-center max-w-5xl mx-auto flex flex-col items-center mt-20">
-          <div className="overflow-hidden mb-8">
-            <motion.h1 
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              transition={{ duration: 1, ease: [0.77, 0, 0.175, 1] }}
-              className="text-5xl md:text-7xl lg:text-8xl font-serif text-primary tracking-tight leading-none uppercase"
-            >
-              {titleWords.map((word, i) => (
-                <span key={i} className="inline-block mr-4">
-                  {i === titleWords.length - 1 ? <span className="text-secondary italic font-light">{word}</span> : word}
-                </span>
-              ))}
-            </motion.h1>
-          </div>
-          
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            animate={{ opacity: 1, scaleX: 1 }}
-            transition={{ duration: 1.5, delay: 0.4, ease: "easeInOut" }}
-            className="w-32 h-[1px] bg-secondary mb-10 origin-center"
-          />
+        <div className="relative z-20 text-center w-full max-w-7xl mx-auto flex flex-col items-center mt-12 md:mt-20">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col items-center w-full"
+          >
+            {/* Sleek Modern Heading */}
+            <h1 className="flex flex-col md:flex-row items-center justify-center gap-x-6 gap-y-2 uppercase leading-none overflow-hidden pb-4">
+              <span className="font-serif font-semibold text-[#081C3A] text-5xl md:text-[64px] tracking-wide inline-flex whitespace-nowrap text-center">
+                {firstPart.split('').map((char, index) => (
+                  <motion.span key={index} variants={letterVariants} className="inline-block">
+                    {char === ' ' ? '\u00A0' : char}
+                  </motion.span>
+                ))}
+              </span>
+              
+              <span className="font-sans font-extrabold text-[#D4AF37] text-5xl sm:text-6xl md:text-[80px] tracking-tight inline-flex whitespace-nowrap text-center mt-2 md:mt-0">
+                {lastPart.split('').map((char, index) => (
+                  <motion.span key={index} variants={letterVariants} className="inline-block">
+                    {char}
+                  </motion.span>
+                ))}
+              </span>
+            </h1>
+
+            {/* Simple Premium Underline */}
+            <motion.div 
+              variants={lineVariants}
+              className="h-[2px] w-[100px] bg-[#D4AF37] mt-8 mb-10 origin-center"
+            ></motion.div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -105,7 +149,7 @@ export default function QualityCompliancePage() {
         {pillars.map((item, index) => {
           const isEven = index % 2 === 0;
           return (
-            <div key={item.key} className="max-w-[1600px] mx-auto px-4 md:px-12 py-16 md:py-32">
+            <div key={item.key} className={`max-w-[1600px] mx-auto px-4 md:px-12 ${index === 0 ? 'pt-8 md:pt-12 pb-16 md:pb-32' : 'py-16 md:py-32'}`}>
               <div className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-24`}>
                 
                 {/* Image Side */}

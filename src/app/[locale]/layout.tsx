@@ -39,6 +39,7 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import SplashScreen from "@/components/ui/SplashScreen";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 export default async function RootLayout(props: Readonly<{
@@ -61,9 +62,12 @@ export default async function RootLayout(props: Readonly<{
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LanguageProvider>
             <SmoothScroll>
-              <Navbar />
-              <main>{children}</main>
-              <Footer />
+              <SplashScreen />
+              <div className="flex flex-col min-h-screen">
+                <Navbar />
+                <main className="flex-grow">{children}</main>
+                <Footer />
+              </div>
             </SmoothScroll>
           </LanguageProvider>
         </NextIntlClientProvider>

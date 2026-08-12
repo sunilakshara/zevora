@@ -40,7 +40,7 @@ export default function ContactPage() {
             </span>
             <h1 className="text-primary text-3xl md:text-5xl font-serif mb-6 md:mb-8 leading-tight">
               {t.contactPage.title1} <br />
-              <span className="text-secondary italic">{t.contactPage.title2}</span>
+              <span className="text-secondary font-sans font-extrabold not-italic tracking-tight">{t.contactPage.title2}</span>
             </h1>
             <p className="text-gray-600 mb-12 leading-relaxed">
               {t.contactPage.description}

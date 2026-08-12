@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, ExternalLink, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -12,13 +13,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
         {/* Brand Column */}
         <div className="col-span-1 md:col-span-1">
-          <Link href={`/${locale}`} className="flex items-center mb-6 group">
-            <img
-              src="/logo.png"
-              alt="Zevora Groupe"
-              className="h-24 w-auto object-contain"
-              style={{ filter: 'drop-shadow(0 2px 12px rgba(212,175,55,0.25))' }}
-            />
+          <Link href={`/${locale}`} className="block mb-6 group">
+            <div className="relative h-24 w-48 flex shrink-0">
+              <Image
+                src="/logo.png"
+                alt="Zevora Groupe"
+                fill
+                quality={100}
+                className="object-contain object-left"
+                style={{ filter: 'drop-shadow(0 2px 12px rgba(212,175,55,0.25))' }}
+              />
+            </div>
           </Link>
           <p className="text-white/70 text-sm leading-relaxed">
             {t.footer.description}

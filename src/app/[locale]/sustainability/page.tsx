@@ -42,7 +42,7 @@ export default function SustainabilityPage() {
     <div className="bg-background min-h-screen text-foreground font-sans selection:bg-secondary/30" ref={containerRef}>
       
       {/* Hero Section */}
-      <section className="relative h-[60vh] flex flex-col items-center justify-center overflow-hidden px-6 bg-charcoal/5">
+      <section className="relative min-h-[70vh] flex flex-col items-center justify-center overflow-hidden px-6 pt-32 pb-24 bg-charcoal/5">
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/world_map.webp"
@@ -53,7 +53,7 @@ export default function SustainabilityPage() {
           />
         </div>
 
-        <div className="relative z-20 text-center max-w-4xl mx-auto flex flex-col items-center mt-20">
+        <div className="relative z-20 text-center max-w-4xl mx-auto flex flex-col items-center mt-12 md:mt-20">
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -74,10 +74,21 @@ export default function SustainabilityPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.5 }}
-            className="text-xl md:text-3xl text-gray-600 font-light max-w-2xl leading-relaxed italic"
+            className="text-2xl md:text-3xl text-gray-600 font-serif max-w-2xl leading-relaxed italic text-[#D4AF37] mb-8"
           >
             "{t.sustainabilityPage.subtitle}"
           </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.5, delay: 0.6 }}
+            className="max-w-4xl px-8 py-6 mt-4 md:px-12 rounded-2xl transition-all duration-700 hover:shadow-xl hover:bg-white/40 hover:-translate-y-1 backdrop-blur-sm border border-transparent hover:border-white/60 group cursor-default"
+          >
+            <p className="text-lg md:text-xl text-gray-700 font-medium leading-relaxed tracking-wide text-center group-hover:text-primary transition-colors duration-500">
+              {t.sustainabilityPage.introText}
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -113,6 +124,7 @@ export default function SustainabilityPage() {
                     alt={item.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    unoptimized={true}
                     className="object-cover hover:scale-105 transition-transform duration-[2s]"
                   />
                 </motion.div>

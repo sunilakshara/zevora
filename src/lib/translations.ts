@@ -51,6 +51,7 @@ export interface Translations {
     standardsDesc: string;
   };
   sustainabilityPage: {
+    introText: string;
     title: string;
     subtitle: string;
     initiativesTitle: string;
@@ -268,6 +269,7 @@ export const translations: Record<Locale, Translations> = {
       standardsDesc: "Full adherence to ISO, HACCP, and specific destination country import regulations.",
     },
     sustainabilityPage: {
+      introText: "We believe that sustainable growth begins with responsible sourcing. By working closely with trusted producers, promoting ethical business practices, and supporting environmentally conscious operations, Zevora Groupe is committed to delivering premium products while creating long-term value for our partners, communities, and the planet",
       title: "Sustainability",
       subtitle: "Committed to a better future.",
       initiativesTitle: "Our Sustainability Initiatives",
@@ -372,7 +374,7 @@ export const translations: Record<Locale, Translations> = {
     marketsPage: {
       tagline: "GLOBAL REACH",
       title1: "Connecting Global Markets with",
-      title2: "India's Finest Agricultural Products",
+      title2: "India's Finest Gourmet Products",
       description: "A trusted supplier of premium spices and food products serving Europe, GCC countries, North America, and beyond. Explore the regions we supply globally.",
       europe: "Europe",
       europeDesc: "Strict compliance with EU phytosanitary and safety standards.",
@@ -493,6 +495,7 @@ export const translations: Record<Locale, Translations> = {
       standardsDesc: "الالتزام الكامل بـ ISO و HACCP ولوائح الاستيراد الخاصة ببلد الوجهة.",
     },
     sustainabilityPage: {
+      introText: "We believe that sustainable growth begins with responsible sourcing. By working closely with trusted producers, promoting ethical business practices, and supporting environmentally conscious operations, Zevora Groupe is committed to delivering premium products while creating long-term value for our partners, communities, and the planet",
       title: "الاستدامة",
       subtitle: "ملتزمون بمستقبل أفضل.",
       initiativesTitle: "مبادراتنا للاستدامة",
@@ -597,7 +600,7 @@ export const translations: Record<Locale, Translations> = {
     marketsPage: {
       tagline: "امتداد عالمي",
       title1: "ربط الأسواق العالمية بـ",
-      title2: "أفضل المنتجات الزراعية الهندية",
+      title2: "أفضل المنتجات الفاخرة الهندية",
       description: "مورد موثوق للتوابل الفاخرة والمنتجات الغذائية لأوروبا ودول الخليج وأمريكا الشمالية وغيرها. استكشف المناطق التي نورد لها عالمياً.",
       europe: "أوروبا",
       europeDesc: "امتثال صارم لمعايير الصحة النباتية والسلامة الأوروبية.",
@@ -718,6 +721,7 @@ export const translations: Record<Locale, Translations> = {
       standardsDesc: "Adhésion totale aux normes ISO, HACCP et aux réglementations d'importation spécifiques du pays de destination.",
     },
     sustainabilityPage: {
+      introText: "We believe that sustainable growth begins with responsible sourcing. By working closely with trusted producers, promoting ethical business practices, and supporting environmentally conscious operations, Zevora Groupe is committed to delivering premium products while creating long-term value for our partners, communities, and the planet",
       title: "Durabilité",
       subtitle: "Engagés pour un avenir meilleur.",
       initiativesTitle: "Nos Initiatives de Durabilité",
@@ -822,7 +826,7 @@ export const translations: Record<Locale, Translations> = {
     marketsPage: {
       tagline: "PORTÉE MONDIALE",
       title1: "Connecter les marchés mondiaux avec",
-      title2: "les meilleurs produits agricoles d'Inde",
+      title2: "les meilleurs produits gourmets d'Inde",
       description: "Un fournisseur de confiance d'épices et de produits alimentaires haut de gamme desservant l'Europe, les pays du CCG, l'Amérique du Nord, et au-delà.",
       europe: "Europe",
       europeDesc: "Conformité stricte aux normes de sécurité et phytosanitaires de l'UE.",

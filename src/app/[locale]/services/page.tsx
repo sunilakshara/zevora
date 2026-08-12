@@ -16,8 +16,9 @@ export default function ServicesPage() {
       icon: Landmark,
       title: t.marketsPage.europe,
       description: t.marketsPage.europeDesc,
-      color: "from-blue-900/20 to-transparent",
-      borderColor: "hover:border-blue-500/50",
+      watermark: "EU",
+      color: "from-blue-900/5 via-transparent to-transparent",
+      borderColor: "hover:border-blue-500/20",
       iconColor: "text-blue-600",
     },
     {
@@ -25,8 +26,9 @@ export default function ServicesPage() {
       icon: Warehouse,
       title: t.marketsPage.gcc,
       description: t.marketsPage.gccDesc,
-      color: "from-amber-900/20 to-transparent",
-      borderColor: "hover:border-secondary/50",
+      watermark: "ME",
+      color: "from-amber-900/5 via-transparent to-transparent",
+      borderColor: "hover:border-secondary/30",
       iconColor: "text-secondary",
     },
     {
@@ -34,8 +36,9 @@ export default function ServicesPage() {
       icon: Globe2,
       title: t.marketsPage.us,
       description: t.marketsPage.usDesc,
-      color: "from-red-900/20 to-transparent",
-      borderColor: "hover:border-red-500/50",
+      watermark: "US",
+      color: "from-red-900/5 via-transparent to-transparent",
+      borderColor: "hover:border-red-500/20",
       iconColor: "text-red-600",
     },
     {
@@ -43,8 +46,9 @@ export default function ServicesPage() {
       icon: MapPin,
       title: t.marketsPage.canada,
       description: t.marketsPage.canadaDesc,
-      color: "from-slate-800/20 to-transparent",
-      borderColor: "hover:border-slate-400/50",
+      watermark: "CA",
+      color: "from-slate-800/5 via-transparent to-transparent",
+      borderColor: "hover:border-slate-400/20",
       iconColor: "text-slate-600",
     },
     {
@@ -52,8 +56,9 @@ export default function ServicesPage() {
       icon: Network,
       title: t.marketsPage.apac,
       description: t.marketsPage.apacDesc,
-      color: "from-emerald-900/20 to-transparent",
-      borderColor: "hover:border-emerald-500/50",
+      watermark: "AP",
+      color: "from-emerald-900/5 via-transparent to-transparent",
+      borderColor: "hover:border-emerald-500/20",
       iconColor: "text-emerald-600",
     },
   ];
@@ -74,7 +79,7 @@ export default function ServicesPage() {
             </span>
             <h1 className="text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif mb-6 md:mb-8 leading-tight">
               {t.marketsPage.title1} <br />
-              <span className="text-secondary italic">{t.marketsPage.title2}</span>
+              <span className="text-secondary font-sans font-extrabold not-italic tracking-tight">{t.marketsPage.title2}</span>
             </h1>
             <p className="text-gray-600 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto">
               {t.marketsPage.description}
@@ -132,37 +137,40 @@ export default function ServicesPage() {
             {regions.map((region, index) => (
               <motion.div
                 key={region.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className={`bg-white p-6 md:p-10 border border-gray-100 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-500 group relative overflow-hidden ${region.borderColor}`}
+                className={`group relative overflow-hidden bg-white p-8 md:p-10 border border-gray-100 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)] hover:-translate-y-2 transition-all duration-700 ${region.borderColor}`}
               >
-                {/* Premium corner glow */}
-                <div className={`absolute -top-24 -right-24 w-64 h-64 bg-gradient-to-bl ${region.color} rounded-full opacity-0 group-hover:opacity-100 blur-3xl transition-opacity duration-700 pointer-events-none`} />
+                {/* Giant Typographic Watermark */}
+                <div className="absolute -bottom-8 -right-4 text-[12rem] font-serif font-black text-gray-50 group-hover:text-gray-100 group-hover:-translate-y-4 group-hover:-translate-x-4 group-hover:scale-110 transition-all duration-700 pointer-events-none select-none z-0 tracking-tighter leading-none">
+                  {region.watermark}
+                </div>
                 
-                <div className="relative z-10 flex flex-col h-full justify-between">
+                {/* Premium corner glow */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${region.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0`} />
+                
+                <div className="relative z-10 flex flex-col h-full justify-between min-h-[320px]">
                   <div>
-                    {/* Icon container with soft inner shadow and elegant shape */}
-                    <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 bg-gradient-to-br from-white to-gray-50 border border-gray-100 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02),0_4px_12px_rgba(0,0,0,0.04)] group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-500`}>
-                      <region.icon size={28} className={region.iconColor} />
+                    {/* Icon container */}
+                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 bg-white border border-gray-100 shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-500 relative overflow-hidden">
+                       <div className="absolute inset-0 bg-secondary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                       <region.icon size={24} className={`${region.iconColor} relative z-10 group-hover:text-secondary transition-colors duration-500`} />
                     </div>
-                    <h3 className="text-2xl font-serif text-primary mb-4 group-hover:text-secondary transition-colors duration-300">{region.title}</h3>
-                    <p className="text-gray-500 leading-relaxed font-light">
+                    <h3 className="text-2xl font-serif text-primary mb-4 group-hover:text-secondary transition-colors duration-500">{region.title}</h3>
+                    <p className="text-gray-500 leading-relaxed font-light text-sm md:text-base pr-8 group-hover:text-gray-700 transition-colors duration-500">
                       {region.description}
                     </p>
                   </div>
                   
-                  <div className="mt-12">
-                    <Link
-                      href={`/${locale}/products`}
-                      className="inline-flex items-center gap-3 text-[11px] font-bold tracking-[0.2em] text-primary uppercase group-hover:text-secondary transition-all"
-                    >
-                      <span className="relative">
-                        Explore Portfolio
-                        <span className="absolute -bottom-1 left-0 w-0 h-px bg-secondary group-hover:w-full transition-all duration-300"></span>
+                  <div className="mt-12 flex items-center gap-4 text-xs font-bold tracking-[0.2em] text-primary uppercase group-hover:text-secondary transition-all cursor-pointer">
+                    <Link href={`/${locale}/products`} className="flex items-center gap-4 w-full h-full">
+                      <span className="relative overflow-hidden flex items-center gap-2">
+                        <span>Explore</span>
+                        <div className="w-8 h-px bg-primary/30 group-hover:w-16 group-hover:bg-secondary transition-all duration-500" />
                       </span>
-                      <ArrowIcon size={16} className="group-hover:translate-x-2 transition-transform duration-300" />
+                      <ArrowIcon size={16} className="group-hover:translate-x-2 transition-transform duration-500" />
                     </Link>
                   </div>
                 </div>

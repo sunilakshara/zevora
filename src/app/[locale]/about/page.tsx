@@ -18,7 +18,7 @@ export default function AboutPage() {
             </span>
             <h1 className="text-primary text-5xl font-serif mb-8 leading-tight">
               {t.aboutPage.title1} <br />
-              <span className="text-secondary italic">{t.aboutPage.title2}</span>
+              <span className="text-secondary font-sans font-extrabold not-italic tracking-tight">{t.aboutPage.title2}</span>
             </h1>
             <p className="text-gray-600 mb-8 leading-relaxed">
               {t.aboutPage.p1}
@@ -38,9 +38,9 @@ export default function AboutPage() {
             </motion.div>
           </div>
 
-          <div className="relative aspect-[4/5] rounded-md overflow-hidden shadow-2xl border border-gray-100 group">
+          <div className="w-[85%] max-w-md mx-auto lg:ml-auto lg:mr-0 relative aspect-[4/5] rounded-md overflow-hidden shadow-2xl border border-gray-100 group">
             <img
-              src="/images/turmeric.webp"
+              src="/images/cardamom.webp"
               alt="Our Story - Pure Indian Harvest"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
