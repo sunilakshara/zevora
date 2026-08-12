@@ -147,8 +147,7 @@ export default function DesktopScrollVideo() {
           className={`w-full h-full object-cover transition-opacity duration-1000 ${isReady ? "opacity-100" : "opacity-0"}`}
         />
 
-        {/* Subtle bottom fade only */}
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+
 
         {/* Left-aligned hero text */}
         <div className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none px-16 max-w-6xl">
