@@ -22,17 +22,10 @@ export default function MobileScrollVideo() {
     restDelta: 0.001
   });
 
-  // Keep a local ref of the scroll progress
-  const progressRef = useRef(0);
+  // Keep a local ref of the images
   const imagesRef = useRef<HTMLImageElement[]>([]);
   
-  // Update progress ref when scroll changes
-  useEffect(() => {
-    const unsubscribe = smoothProgress.on("change", (latest) => {
-      progressRef.current = latest;
-    });
-    return () => unsubscribe();
-  }, [smoothProgress]);
+
 
   // Load images
   useEffect(() => {
@@ -74,10 +67,12 @@ export default function MobileScrollVideo() {
 
     const renderLoop = () => {
       if (imagesRef.current.length > 0 && totalFrames > 0) {
+        // Read the spring progress directly every frame
+        const currentProgress = smoothProgress.get();
         // Calculate target frame index
         const targetFrame = Math.min(
           totalFrames - 1,
-          Math.max(0, Math.floor(progressRef.current * totalFrames))
+          Math.max(0, Math.floor(currentProgress * totalFrames))
         );
         
         // Only redraw if frame changed

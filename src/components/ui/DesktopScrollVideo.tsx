@@ -25,16 +25,9 @@ export default function DesktopScrollVideo() {
     restDelta: 0.001
   });
 
-  const progressRef = useRef(0);
   const imagesRef = useRef<HTMLImageElement[]>([]);
 
-  // Subscribe to smoothed scroll progress
-  useEffect(() => {
-    const unsubscribe = smoothProgress.on("change", (latest) => {
-      progressRef.current = latest;
-    });
-    return () => unsubscribe();
-  }, [smoothProgress]);
+
 
   // Preload all WebP frames
   useEffect(() => {
@@ -70,9 +63,11 @@ export default function DesktopScrollVideo() {
 
     const loop = () => {
       if (imagesRef.current.length > 0 && totalFrames > 0) {
+        // Read the spring progress directly every frame
+        const currentProgress = smoothProgress.get();
         const targetFrame = Math.min(
           totalFrames - 1,
-          Math.max(0, Math.floor(progressRef.current * totalFrames))
+          Math.max(0, Math.floor(currentProgress * totalFrames))
         );
 
         if (targetFrame !== lastFrame) {
