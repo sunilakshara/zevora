@@ -6,17 +6,19 @@ if (!MONGODB_URI) {
   console.warn("Please define the MONGODB_URI environment variable inside .env.local");
 }
 
+type MongooseConnection = {
+  conn: typeof import('mongoose') | null;
+  promise: Promise<typeof import('mongoose')> | null;
+};
+
 declare global {
-  var mongoose: {
-    conn: typeof import('mongoose') | null;
-    promise: Promise<typeof import('mongoose')> | null;
-  } | undefined;
+  var mongoose: MongooseConnection | undefined;
 }
 
-let cached = global.mongoose;
+let cached: MongooseConnection = global.mongoose || { conn: null, promise: null };
 
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
+if (!global.mongoose) {
+  global.mongoose = cached;
 }
 
 async function connectDB() {
