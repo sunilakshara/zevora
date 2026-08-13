@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Award, Users, Map, HeartHandshake, Search, ShieldCheck, Package, FileText, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
-
+import Image from "next/image";
 export default function AboutPage() {
   const { t } = useLanguage();
 
@@ -46,9 +46,15 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-full max-w-md aspect-[4/5] bg-[#F2F0EB] rounded-md shadow-2xl z-10 overflow-hidden group"
+              className="w-full max-w-md aspect-[4/5] bg-[#F2F0EB] rounded-md shadow-2xl z-10 overflow-hidden group relative"
             >
-              <div className="w-full h-full bg-[url('/images/about_story.jpeg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-700"></div>
+              <Image 
+                src="/images/about_story.jpeg"
+                alt="Three friends"
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, 400px"
+              />
             </motion.div>
           </div>
           
