@@ -394,7 +394,7 @@ export const translations: Record<Locale, Translations> = {
     },
     aboutPage: {
       storyTitle: "Three friends. One journey. One idea.",
-      storyP1: "In 2018, three friends, Akshara, Dinu and Akarsh met for the first time when they joined college to pursue their BTech. What started as a college friendship slowly grew into something much bigger — a shared ambition to build something of their own.",
+      storyP1: "In 2018, three friends, Akshara, Dinu and Akarsh met for the first time when they joined college to pursue their BTech. What started as a college friendship slowly grew into something much bigger, a shared ambition to build something of their own.",
       storyP2: "Over the years, each of them followed their own path, gaining different experiences, perspectives and a better understanding of the world around them. One of them built experience in the Food & Beverage industry, discovering the world of quality products, sourcing, hospitality and international markets.",
       storyP3: "The idea began to take shape through conversations about food, about businesses, about opportunities, and about how great products could find their way to the right people and places.",
       storyP4: "What began as three friends with different experiences became three friends with one common vision: to create a company that connects people, products and opportunities across borders.",
