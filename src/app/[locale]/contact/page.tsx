@@ -84,8 +84,8 @@ export default function ContactPage() {
                     {t.contactPage.emailTitle}
                   </h4>
                   <p className="text-sm text-gray-500">
-                    B2B: export@zevoragroupe.com<br />
-                    Logistics: supply@zevoragroupe.com
+                    Accounts: accounts@zevoragroupe.com<br />
+                    Sales: export@zevoragroupe.com
                   </p>
                 </div>
               </div>
