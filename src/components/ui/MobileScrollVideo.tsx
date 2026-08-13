@@ -6,7 +6,7 @@ import { useScroll, useTransform, motion, useSpring } from "framer-motion";
 export default function MobileScrollVideo() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [totalFrames, setTotalFrames] = useState(0);
+  const [totalFrames, setTotalFrames] = useState(120);
   const [imagesLoaded, setImagesLoaded] = useState(0);
   
   // Track scroll progress of this specific container
@@ -31,7 +31,6 @@ export default function MobileScrollVideo() {
   useEffect(() => {
     // Using 120 total frames for mobile to avoid memory crashes, while still providing smooth scrubbing
     const frameCount = 120;
-    setTotalFrames(frameCount);
 
     let loadedCount = 0;
     const loadedImages: HTMLImageElement[] = [];

@@ -19,14 +19,28 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     const formData = new FormData(event.currentTarget);
-    const result = await submitInquiry(formData);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const company = formData.get("company") as string;
+    const phone = formData.get("phone") as string;
+    const product = formData.get("product") as string;
+    const requirement = formData.get("requirement") as string;
 
+    const message = `*New Inquiry from Website*
+*Name:* ${name}
+*Email:* ${email}
+*Company:* ${company || "N/A"}
+*Phone:* ${phone || "N/A"}
+*Product:* ${product}
+*Requirement:* ${requirement}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/919544433282?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, "_blank");
+    
     setIsSubmitting(false);
-    if (result.success) {
-      setIsSuccess(true);
-    } else {
-      alert("Something went wrong. Please try again.");
-    }
+    setIsSuccess(true);
   }
 
   return (

@@ -10,7 +10,7 @@ export default function DesktopScrollVideo() {
   const { locale } = useParams();
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [totalFrames, setTotalFrames] = useState(0);
+  const [totalFrames, setTotalFrames] = useState(120);
   const [imagesLoaded, setImagesLoaded] = useState(0);
 
   const { scrollYProgress } = useScroll({
@@ -32,7 +32,6 @@ export default function DesktopScrollVideo() {
   // Preload all WebP frames
   useEffect(() => {
     const frameCount = 120; // 12fps × 10s
-    setTotalFrames(frameCount);
 
     let loadedCount = 0;
     const imgs: HTMLImageElement[] = [];
