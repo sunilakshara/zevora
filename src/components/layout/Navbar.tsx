@@ -59,7 +59,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Links — centered with generous spacing */}
-        <div className="hidden lg:flex items-center gap-10 flex-1 justify-center">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-8 flex-1 justify-center">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -74,7 +74,9 @@ export default function Navbar() {
         {/* Right CTA & Language */}
         <div className="hidden sm:flex items-center gap-6 shrink-0 ml-4">
           <Link
-            href={`/${locale}/contact`}
+            href="https://wa.me/919544433282"
+            target="_blank"
+            rel="noopener noreferrer"
             className="border border-secondary text-secondary hover:bg-secondary hover:text-primary-dark text-[11px] font-bold tracking-[0.15em] uppercase px-6 py-3 rounded-sm transition-all duration-200 shadow-sm"
           >
             {t.nav.requestQuote}
@@ -177,7 +179,7 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link href={`/${locale}/contact`} onClick={() => setIsOpen(false)}>
+            <Link href="https://wa.me/919544433282" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
               <Button variant="secondary" className="mt-4 w-full">
                 {t.nav.requestQuote}
               </Button>

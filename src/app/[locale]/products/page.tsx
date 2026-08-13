@@ -139,7 +139,7 @@ export default function ProductsPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                  <Link href={`/${locale}/contact`} className="flex-1">
+                  <Link href="https://wa.me/919544433282" target="_blank" rel="noopener noreferrer" className="flex-1">
                     <Button variant="primary" className="w-full flex justify-between items-center py-4 px-6 group cursor-pointer">
                       <span>{t.products.inquireNow}</span>
                       <ArrowIcon size={18} className="group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />

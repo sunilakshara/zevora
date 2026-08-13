@@ -11,41 +11,47 @@ export default function AboutPage() {
     <div className="pt-32 pb-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         {/* Story Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-24 md:mb-32">
-          <div>
-            <span className="text-secondary font-medium tracking-[0.3em] uppercase text-xs mb-4 block">
-              {t.aboutPage.heritageTag}
-            </span>
-            <h1 className="text-primary text-5xl font-serif mb-8 leading-tight">
-              {t.aboutPage.title1} <br />
-              <span className="text-secondary font-sans font-extrabold not-italic tracking-tight">{t.aboutPage.title2}</span>
+        <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24 mb-24 md:mb-32">
+          
+          {/* Left Text Content */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex-1 w-full lg:sticky lg:top-32"
+          >
+            <h1 className="text-3xl md:text-5xl font-serif text-primary mb-8 md:mb-10 leading-[1.15] max-w-lg">
+              {t.aboutPage.storyTitle}
             </h1>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              {t.aboutPage.p1}
-            </p>
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="bg-primary-dark text-white p-8 rounded-md border-l-4 border-secondary relative overflow-hidden shadow-xl"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/3" />
-              <div className="relative z-10">
-                <p className="font-serif text-lg md:text-xl leading-relaxed italic opacity-90">
-                  "{t.aboutPage.p2}"
-                </p>
+            <div className="space-y-6 text-gray-800 font-sans text-[16px] leading-[1.8] font-normal max-w-xl">
+              <p>{t.aboutPage.storyP1}</p>
+              <p>{t.aboutPage.storyP2}</p>
+              <p>{t.aboutPage.storyP3}</p>
+              <p>{t.aboutPage.storyP4}</p>
+              <p>{t.aboutPage.storyP5}</p>
+              <p>{t.aboutPage.storyP6}</p>
+              
+              <div className="pt-4 font-medium text-primary">
+                <p>{t.aboutPage.storyHighlight1}</p>
+                <p className="mt-2 text-xl font-serif text-secondary">{t.aboutPage.storyHighlight2}</p>
               </div>
+            </div>
+          </motion.div>
+
+          {/* Right Image (Single Box) */}
+          <div className="flex-1 w-full relative min-h-[500px] md:min-h-[600px] flex items-center justify-center mt-12 lg:mt-0">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-full max-w-md aspect-[4/5] bg-[#F2F0EB] rounded-md shadow-2xl z-10 overflow-hidden group"
+            >
+              <div className="w-full h-full bg-[url('/images/about_story.jpeg')] bg-cover bg-center group-hover:scale-105 transition-transform duration-700"></div>
             </motion.div>
           </div>
-
-          <div className="w-[85%] max-w-md mx-auto lg:ml-auto lg:mr-0 relative aspect-[4/5] rounded-md overflow-hidden shadow-2xl border border-gray-100 group">
-            <img
-              src="/images/cardamom.webp"
-              alt="Our Story - Pure Indian Harvest"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/40 via-transparent to-transparent pointer-events-none" />
-          </div>
+          
         </div>
 
         {/* Values Grid */}

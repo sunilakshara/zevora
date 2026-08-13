@@ -85,8 +85,9 @@ export default function ContactPage() {
                     {t.contactPage.phoneTitle}
                   </h4>
                   <p className="text-sm text-gray-500">
-                    International: +91 484 2345 678<br />
-                    Operations: +91 98470 12345
+                    India: +91 95269 81559<br />
+                    France: +33 745651608<br />
+                    <span className="opacity-0">France: </span>+33 780867167
                   </p>
                 </div>
               </div>

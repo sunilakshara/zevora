@@ -166,13 +166,15 @@ export interface Translations {
     customButton: string;
   };
   aboutPage: {
-    heritageTag: string;
-    title1: string;
-    title2: string;
-    p1: string;
-    p2: string;
-    yearsExcellence: string;
-    countriesReached: string;
+    storyTitle: string;
+    storyP1: string;
+    storyP2: string;
+    storyP3: string;
+    storyP4: string;
+    storyP5: string;
+    storyP6: string;
+    storyHighlight1: string;
+    storyHighlight2: string;
     valuesTitle: string;
     valuesSubtitle: string;
     val1Title: string;
@@ -391,13 +393,15 @@ export const translations: Record<Locale, Translations> = {
       customButton: "Request Quotation",
     },
     aboutPage: {
-      heritageTag: "OUR HERITAGE",
-      title1: "A Legacy of Quality,",
-      title2: "Rooted in Tradition",
-      p1: "Zevora groupe is an export-focused company dedicated to sourcing and delivering premium agricultural and food products from India to global markets.",
-      p2: "Our Mission: To build long-term partnerships through quality, transparency, and reliability. Our Vision: To become a globally trusted food and agricultural export brand.",
-      yearsExcellence: "Years of Excellence",
-      countriesReached: "Countries Reached",
+      storyTitle: "Three friends. One journey. One idea.",
+      storyP1: "In 2018, three friends, Akshara, Dinu and Akarsh met for the first time when they joined college to pursue their BTech. What started as a college friendship slowly grew into something much bigger — a shared ambition to build something of their own.",
+      storyP2: "Over the years, each of them followed their own path, gaining different experiences, perspectives and a better understanding of the world around them. One of them built experience in the Food & Beverage industry, discovering the world of quality products, sourcing, hospitality and international markets.",
+      storyP3: "The idea began to take shape through conversations about food, about businesses, about opportunities, and about how great products could find their way to the right people and places.",
+      storyP4: "What began as three friends with different experiences became three friends with one common vision: to create a company that connects people, products and opportunities across borders.",
+      storyP5: "In 2026, that vision became Zevora Groupe.",
+      storyP6: "Today, Zevora Groupe is built on the same foundation that brought the three friends together in 2018, trust, friendship, curiosity and the belief that something meaningful can be created when different experiences come together.",
+      storyHighlight1: "Three friends. Different experiences. One shared vision.",
+      storyHighlight2: "Zevora Groupe",
       valuesTitle: "Driven by Excellence",
       valuesSubtitle: "Our operations are guided by four pillars that ensure consistency and trust across borders.",
       val1Title: "Uncompromising Quality",
@@ -416,7 +420,7 @@ export const translations: Record<Locale, Translations> = {
       description:
         "Tailoring excellence in international trade from the heart of our global hubs. Whether you're seeking strategic commodity sourcing or complex container logistics, our specialist teams are ready to facilitate your vision.",
       hqTitle: "Global Headquarters",
-      hqAddress: "Level 5, Trade Tower, MG Road\nCochin, Kerala 682011, India",
+      hqAddress: "ZEVORA GROUPE PRIVATE LIMITED\nCIN: U46305KL2026PTC103763\nReg. Office: Door No 283/A, Mas Arcade, Mekkadampu P.O, Mekkadambu, Muvattupuzha, Ernakulam district, Kerala, India, 682316\nMob: +91 9544433282",
       emailTitle: "Direct Inquiries",
       phoneTitle: "Commercial Desk",
       formTitle: "Submit Export Inquiry",
@@ -617,13 +621,15 @@ export const translations: Record<Locale, Translations> = {
       customButton: "اطلب تسعيرة",
     },
     aboutPage: {
-      heritageTag: "تراثنا العريق",
-      title1: "إرث من الجودة،",
-      title2: "متجذر في التقاليد",
-      p1: "تأسست مجموعة زيفورا عام 1994 في قلب حزام التوابل في كيرلا، وبدأت برؤية واضحة: إيصال نكهات الهند الأصيلة إلى العالم بلا مساومة على الجودة.",
-      p2: "على مدار ثلاثة عقود، تطورنا من بيت تجاري محلي إلى رائد عالمي في سلاسل الإمداد اللوجستية، مع الحفاظ على قيم النزاهة والشفافية والاحترام العميق للمزارعين.",
-      yearsExcellence: "عاماً من التميز",
-      countriesReached: "دولة حول العالم",
+      storyTitle: "ثلاثة أصدقاء. رحلة واحدة. فكرة واحدة.",
+      storyP1: "في عام 2018، التقى ثلاثة أصدقاء: أكشارا، دينو وأكارش لأول مرة عندما انضموا إلى الكلية لمتابعة درجة البكالوريوس في التكنولوجيا. ما بدأ كصداقة جامعية نما ببطء ليصبح شيئًا أكبر بكثير - طموح مشترك لبناء شيء خاص بهم.",
+      storyP2: "على مر السنين، اتبع كل منهم مساره الخاص، واكتسبوا خبرات مختلفة، ووجهات نظر وفهمًا أفضل للعالم من حولهم. بنى أحدهم خبرة في صناعة الأغذية والمشروبات، واكتشف عالم المنتجات عالية الجودة، وتحديد المصادر، والضيافة والأسواق الدولية.",
+      storyP3: "بدأت الفكرة تتبلور من خلال المحادثات حول الطعام، حول الأعمال، حول الفرص، وحول كيف يمكن للمنتجات الرائعة أن تجد طريقها إلى الأشخاص والأماكن المناسبة.",
+      storyP4: "ما بدأ كثلاثة أصدقاء بخبرات مختلفة أصبح ثلاثة أصدقاء برؤية مشتركة واحدة: إنشاء شركة تربط الأشخاص والمنتجات والفرص عبر الحدود.",
+      storyP5: "في عام 2026، أصبحت تلك الرؤية مجموعة زيفورا.",
+      storyP6: "اليوم، بنيت مجموعة زيفورا على نفس الأساس الذي جمع الأصدقاء الثلاثة معًا في عام 2018: الثقة، الصداقة، الفضول، والاعتقاد بأنه يمكن إنشاء شيء ذي معنى عندما تتلاقى التجارب المختلفة.",
+      storyHighlight1: "ثلاثة أصدقاء. تجارب مختلفة. رؤية مشتركة واحدة.",
+      storyHighlight2: "مجموعة زيفورا",
       valuesTitle: "مدفوعون بالتميز",
       valuesSubtitle: "تسترشد عملياتنا بأربع ركائز تضمن الاتساق والموثوقية عبر الحدود.",
       val1Title: "جودة لا تهاون فيها",
@@ -642,7 +648,7 @@ export const translations: Record<Locale, Translations> = {
       description:
         "نصنع التميز في التجارة الدولية من قلب مراكزنا العالمية. سواء كنت تبحث عن توريد سلع استراتيجية أو حلول لوجستية متكاملة، فإن فرقنا المتخصصة مستعدة لتلبية متطلباتك.",
       hqTitle: "المقر الرئيسي العالمي",
-      hqAddress: "الطابق 5، برج التجارة، طريق إم جي\nكوتشين، كيرلا 682011، الهند",
+      hqAddress: "ZEVORA GROUPE PRIVATE LIMITED\nCIN: U46305KL2026PTC103763\nالمكتب المسجل: Door No 283/A, Mas Arcade, Mekkadampu P.O, Mekkadambu, Muvattupuzha, Ernakulam district, Kerala, India, 682316\nالجوال: +91 9544433282",
       emailTitle: "الاستفسارات المباشرة",
       phoneTitle: "مكتب المبيعات الدولية",
       formTitle: "إرسال طلب استفسار تصدير",
@@ -843,13 +849,15 @@ export const translations: Record<Locale, Translations> = {
       customButton: "Demander un devis",
     },
     aboutPage: {
-      heritageTag: "NOTRE HÉRITAGE",
-      title1: "Un Héritage d'Excellence,",
-      title2: "Ancré dans la Tradition",
-      p1: "Fondé en 1994 au cœur du terroir des épices du Kerala, Zevora Groupe est né d'une vision simple : apporter les saveurs authentiques de l'Inde au monde entier sans aucun compromis.",
-      p2: "En trois décennies, nous sommes passés d'une maison de négoce locale à une référence logistique internationale, tout en restant fidèles à nos valeurs d'intégrité, de transparence et de profond respect pour les producteurs agricoles.",
-      yearsExcellence: "Années d'Excellence",
-      countriesReached: "Pays Desservis",
+      storyTitle: "Trois amis. Un voyage. Une idée.",
+      storyP1: "En 2018, trois amis, Akshara, Dinu et Akarsh se sont rencontrés pour la première fois lorsqu'ils ont rejoint l'université pour poursuivre leur BTech. Ce qui a commencé comme une amitié universitaire s'est lentement transformé en quelque chose de bien plus grand — une ambition partagée de construire quelque chose par eux-mêmes.",
+      storyP2: "Au fil des années, chacun d'eux a suivi sa propre voie, acquérant différentes expériences, perspectives et une meilleure compréhension du monde qui les entoure. L'un d'eux a acquis de l'expérience dans l'industrie de la restauration, découvrant le monde des produits de qualité, de l'approvisionnement, de l'hospitalité et des marchés internationaux.",
+      storyP3: "L'idée a commencé à prendre forme à travers des conversations sur l'alimentation, les entreprises, les opportunités, et sur la façon dont de bons produits pourraient trouver leur chemin vers les bonnes personnes et les bons endroits.",
+      storyP4: "Ce qui a commencé comme trois amis avec des expériences différentes est devenu trois amis avec une vision commune : créer une entreprise qui relie les gens, les produits et les opportunités à travers les frontières.",
+      storyP5: "En 2026, cette vision est devenue Zevora Groupe.",
+      storyP6: "Aujourd'hui, Zevora Groupe est construit sur la même fondation qui a réuni les trois amis en 2018 : la confiance, l'amitié, la curiosité et la conviction que quelque chose de significatif peut être créé lorsque différentes expériences se rejoignent.",
+      storyHighlight1: "Trois amis. Des expériences différentes. Une vision partagée.",
+      storyHighlight2: "Zevora Groupe",
       valuesTitle: "Guidés par l'Excellence",
       valuesSubtitle: "Nos opérations s'appuient sur quatre piliers fondamentaux garantissant rigueur et confiance à travers les frontières.",
       val1Title: "Qualité Inflexible",
@@ -868,7 +876,7 @@ export const translations: Record<Locale, Translations> = {
       description:
         "L'excellence sur mesure dans le commerce international depuis nos hubs stratégiques. Que vous recherchiez un approvisionnement en matières premières ou des solutions logistiques complètes, nos équipes d'experts sont à votre écoute.",
       hqTitle: "Siège Social International",
-      hqAddress: "Niveau 5, Trade Tower, MG Road\nCochin, Kerala 682011, Inde",
+      hqAddress: "ZEVORA GROUPE PRIVATE LIMITED\nCIN: U46305KL2026PTC103763\nSiège social: Door No 283/A, Mas Arcade, Mekkadampu P.O, Mekkadambu, Muvattupuzha, Ernakulam district, Kerala, India, 682316\nMob: +91 9544433282",
       emailTitle: "Demandes Directes",
       phoneTitle: "Bureau Commercial",
       formTitle: "Formulaire de Demande d'Exportation",
