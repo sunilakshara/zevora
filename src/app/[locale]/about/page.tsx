@@ -44,14 +44,15 @@ export default function AboutPage() {
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: "0px" }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="w-full max-w-md aspect-[4/5] bg-[#F2F0EB] rounded-md shadow-2xl z-10 overflow-hidden group relative"
             >
               <Image 
-                src="/images/about_story.jpeg"
+                src="/images/about_story.webp"
                 alt="Three friends"
                 fill
+                quality={100}
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 768px) 100vw, 400px"
               />
