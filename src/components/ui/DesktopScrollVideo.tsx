@@ -7,26 +7,20 @@ import { useEffect, useState } from "react";
 
 export default function DesktopScrollVideo() {
   const { locale } = useParams();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <div className="hidden md:block relative w-full h-screen overflow-hidden bg-[#06111f]">
       {/* Native Hardware-Accelerated Video */}
-      {mounted && (
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="/hero.mp4" type="video/mp4" />
-        </video>
-      )}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
 
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/30 z-[5] pointer-events-none" />
