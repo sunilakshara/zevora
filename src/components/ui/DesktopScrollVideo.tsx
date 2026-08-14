@@ -1,114 +1,32 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function DesktopScrollVideo() {
   const { locale } = useParams();
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-  const totalFrames = 240;
-  const fps = 24;
-  const frameInterval = 1000 / fps;
+  const [mounted, setMounted] = useState(false);
 
-  const imagesRef = useRef<HTMLImageElement[]>([]);
-
-  // Preload all WebP frames
   useEffect(() => {
-    let loadedCount = 0;
-    const imgs: HTMLImageElement[] = [];
-
-    for (let i = 1; i <= totalFrames; i++) {
-      const img = new Image();
-      const padded = String(i).padStart(4, "0");
-      img.src = `/desktop_frames/frame_${padded}.webp`;
-      img.onload = () => {
-        loadedCount++;
-        setImagesLoaded(loadedCount);
-      };
-      imgs.push(img);
-    }
-
-    imagesRef.current = imgs;
+    setMounted(true);
   }, []);
-
-  // Auto-play loop using requestAnimationFrame
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let rafId: number;
-    let lastRenderTime = performance.now();
-    let currentFrame = 0;
-
-    const loop = (time: number) => {
-      rafId = requestAnimationFrame(loop);
-      
-      const elapsed = time - lastRenderTime;
-
-      // Only draw next frame if enough time has passed based on FPS
-      if (elapsed > frameInterval && imagesRef.current.length > 0) {
-        lastRenderTime = time - (elapsed % frameInterval);
-
-        const img = imagesRef.current[currentFrame];
-        if (img?.complete && img.naturalWidth > 0) {
-          const cw = canvas.width;
-          const ch = canvas.height;
-          const ir = img.width / img.height;
-          const cr = cw / ch;
-
-          let sw = cw, sh = ch, ox = 0, oy = 0;
-          if (cr > ir) {
-            sh = cw / ir;
-            oy = (ch - sh) / 2;
-          } else {
-            sw = ch * ir;
-            ox = (cw - sw) / 2;
-          }
-
-          ctx.imageSmoothingEnabled = true;
-          ctx.imageSmoothingQuality = "high";
-          ctx.clearRect(0, 0, cw, ch);
-          ctx.drawImage(img, ox, oy, sw, sh);
-        }
-
-        currentFrame = (currentFrame + 1) % totalFrames;
-      }
-    };
-
-    rafId = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(rafId);
-  }, []);
-
-  const loadPct = Math.round((imagesLoaded / totalFrames) * 100);
-  const isReady = loadPct >= 5;
 
   return (
     <div className="hidden md:block relative w-full h-screen overflow-hidden bg-[#06111f]">
-      {/* Loader */}
-      {!isReady && (
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-20 gap-5 bg-[#06111f]">
-          <div className="relative w-16 h-16">
-            <div className="absolute inset-0 border-2 border-secondary/20 rounded-full" />
-            <div className="absolute inset-0 border-2 border-secondary border-t-transparent rounded-full animate-spin" />
-          </div>
-          <p className="text-secondary/70 text-xs font-light tracking-[0.35em] uppercase">
-            Preparing High Fidelity Loop · {loadPct}%
-          </p>
-        </div>
+      {/* Native Hardware-Accelerated Video */}
+      {mounted && (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
       )}
-
-      {/* Canvas Video Replacement */}
-      <canvas
-        ref={canvasRef}
-        width={1920}
-        height={1080}
-        className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${isReady ? "opacity-90" : "opacity-0"}`}
-      />
 
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/30 z-[5] pointer-events-none" />
