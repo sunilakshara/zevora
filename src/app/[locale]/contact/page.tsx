@@ -98,10 +98,8 @@ export default function ContactPage() {
                   <h4 className="text-lg font-serif text-primary mb-1">
                     {t.contactPage.phoneTitle}
                   </h4>
-                  <p className="text-sm text-gray-500">
-                    India: +91 95269 81559<br />
-                    France: +33 745651608<br />
-                    <span className="opacity-0">France: </span>+33 780867167
+                  <p className="text-gray-500">
+                    WhatsApp: +91 9544433282
                   </p>
                 </div>
               </div>
