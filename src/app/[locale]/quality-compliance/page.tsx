@@ -114,7 +114,7 @@ export default function QualityCompliancePage() {
                 ))}
               </span>
               
-              <span className="font-sans font-extrabold text-[#D4AF37] text-5xl sm:text-6xl md:text-[80px] tracking-tight inline-flex whitespace-nowrap text-center mt-2 md:mt-0">
+              <span className="font-sans font-extrabold text-[#D4AF37] text-6xl md:text-[80px] lg:text-[96px] tracking-tight inline-flex whitespace-nowrap text-center mt-2 md:mt-0">
                 {lastPart.split('').map((char, index) => (
                   <motion.span key={index} variants={letterVariants} className="inline-block">
                     {char}
