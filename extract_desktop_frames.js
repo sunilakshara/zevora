@@ -22,10 +22,10 @@ try {
   probeOutput = e.stderr || e.stdout || '';
 }
 
-console.log('Video info detected. Starting extraction at 12 FPS (120 frames)...');
+console.log('Video info detected. Starting extraction at 24 FPS (240 frames)...');
 
-// Extract at 12fps, scale to 1280 wide (HD desktop), quality 60
-const command = `"${ffmpeg}" -i "${videoPath}" -vf "scale=1280:-1,fps=12" -vcodec libwebp -q:v 60 "${path.join(outDir, 'frame_%04d.webp')}"`;
+// Extract at 24fps, scale to 1920 wide (Full HD), quality 85
+const command = `"${ffmpeg}" -i "${videoPath}" -vf "scale=1920:-1,fps=24" -vcodec libwebp -q:v 85 "${path.join(outDir, 'frame_%04d.webp')}"`;
 
 try {
   execSync(command, { stdio: 'inherit' });

@@ -9,8 +9,8 @@ export default function DesktopScrollVideo() {
   const { locale } = useParams();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [imagesLoaded, setImagesLoaded] = useState(0);
-  const totalFrames = 120;
-  const fps = 12;
+  const totalFrames = 240;
+  const fps = 24;
   const frameInterval = 1000 / fps;
 
   const imagesRef = useRef<HTMLImageElement[]>([]);
