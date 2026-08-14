@@ -1,21 +1,32 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
 export default function DesktopScrollVideo() {
   const { locale } = useParams();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Video autoplay failed:", error);
+      });
+    }
+  }, []);
 
   return (
     <div className="hidden md:block relative w-full h-screen overflow-hidden bg-[#06111f]">
       {/* Video Background */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/videos/hero_desktop.mp4" type="video/mp4" />
       </video>
