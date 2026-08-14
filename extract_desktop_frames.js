@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-const videoPath = path.join(__dirname, 'public', 'videos', 'hero_desktop.mp4');
+const videoPath = path.join(__dirname, 'hero_extracted.mp4');
 const outDir = path.join(__dirname, 'public', 'desktop_frames');
 
 if (fs.existsSync(outDir)) {
