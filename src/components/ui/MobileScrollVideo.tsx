@@ -1,168 +1,23 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useScroll, useTransform, motion, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function MobileScrollVideo() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [totalFrames, setTotalFrames] = useState(120);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-  
-  // Track scroll progress of this specific container
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-
-  // Apply a spring physics model to smooth out scroll lag/choppiness
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  // Keep a local ref of the images
-  const imagesRef = useRef<HTMLImageElement[]>([]);
-  
-
-
-  // Load images
-  useEffect(() => {
-    // Using 120 total frames for mobile to avoid memory crashes, while still providing smooth scrubbing
-    const frameCount = 120;
-
-    let loadedCount = 0;
-    const loadedImages: HTMLImageElement[] = [];
-
-    // Preload frames 
-    // We only load every 2nd or 3rd frame initially to speed up the loader,
-    // but for "buttery smooth" we'll load them all. Given 1200 frames, it may take a few seconds.
-    for (let i = 1; i <= frameCount; i++) {
-      const img = new Image();
-      const frameNum = i.toString().padStart(4, '0');
-      img.src = `/mobile_frames/frame_${frameNum}.webp`;
-      
-      img.onload = () => {
-        loadedCount++;
-        setImagesLoaded(loadedCount);
-      };
-      
-      loadedImages.push(img);
-    }
-    
-    imagesRef.current = loadedImages;
-  }, []);
-
-  // Canvas render loop
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let lastRenderedFrame = -1;
-
-    const renderLoop = () => {
-      if (imagesRef.current.length > 0 && totalFrames > 0) {
-        // Read the spring progress directly every frame
-        const currentProgress = smoothProgress.get();
-        // Calculate target frame index
-        const targetFrame = Math.min(
-          totalFrames - 1,
-          Math.max(0, Math.floor(currentProgress * totalFrames))
-        );
-        
-        // Only redraw if frame changed
-        if (targetFrame !== lastRenderedFrame) {
-          const img = imagesRef.current[targetFrame];
-          if (img && img.complete && img.naturalWidth > 0) {
-            // Draw image to cover canvas (like object-fit: cover)
-            const canvasRatio = canvas.width / canvas.height;
-            const imgRatio = img.width / img.height;
-            
-            let drawWidth = canvas.width;
-            let drawHeight = canvas.height;
-            let offsetX = 0;
-            let offsetY = 0;
-
-            if (canvasRatio > imgRatio) {
-              drawHeight = canvas.width / imgRatio;
-              offsetY = (canvas.height - drawHeight) / 2;
-            } else {
-              drawWidth = canvas.height * imgRatio;
-              offsetX = (canvas.width - drawWidth) / 2;
-            }
-
-            // High quality drawing for smooth results
-            ctx.imageSmoothingEnabled = true;
-            ctx.imageSmoothingQuality = "high";
-
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-            lastRenderedFrame = targetFrame;
-          }
-        }
-      }
-      
-      animationFrameId = requestAnimationFrame(renderLoop);
-    };
-
-    animationFrameId = requestAnimationFrame(renderLoop);
-
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [totalFrames]);
-
-  // Determine loaded percentage for the loader
-  const loadPercentage = totalFrames > 0 ? Math.round((imagesLoaded / totalFrames) * 100) : 0;
-  const isReady = loadPercentage > 10; // Start showing once 10% is loaded to avoid long wait
-
   return (
-    <div 
-      ref={containerRef} 
-      className="md:hidden relative w-full"
-      style={{ height: "200vh" }} // Extra height for a longer, slower scroll scrub through the 120fps video
-    >
-      <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center bg-black">
-        
-        {/* Loader */}
-        {!isReady && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center z-10 gap-4">
-            <div className="w-8 h-8 border-2 border-secondary border-t-transparent rounded-full animate-spin" />
-            <p className="text-secondary/80 text-xs tracking-widest uppercase">Optimizing 120FPS ({loadPercentage}%)</p>
-          </div>
-        )}
-        
-        <canvas
-          ref={canvasRef}
-          width={720}
-          height={1280}
-          className={`w-full h-full object-cover transition-opacity duration-1000 ${isReady ? 'opacity-90' : 'opacity-0'}`}
-        />
-        
+    <div className="md:hidden relative w-full h-screen overflow-hidden bg-black">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+        src="/videos/hero_mobile.mp4"
+      />
+      
 
         
-        <div className="absolute bottom-12 left-0 w-full px-6 z-20 text-center">
-          <motion.h2 
-            className="text-3xl font-serif text-white mb-2 shadow-sm"
-            style={{ 
-              opacity: useTransform(scrollYProgress, [0.1, 0.5, 0.9], [0, 1, 0]),
-              y: useTransform(scrollYProgress, [0.1, 0.9], [20, -20])
-            }}
-          >
-            Global Export Logistics
-          </motion.h2>
-          <motion.p 
-            className="text-white/80 text-sm font-light tracking-wide shadow-sm"
-            style={{ 
-              opacity: useTransform(scrollYProgress, [0.2, 0.5, 0.8], [0, 1, 0])
-            }}
-          >
-            Seamless supply chain operations.
-          </motion.p>
-        </div>
-      </div>
+
     </div>
   );
 }

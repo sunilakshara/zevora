@@ -73,12 +73,14 @@ export default function Navbar() {
 
         {/* Right CTA & Language */}
         <div className="hidden sm:flex items-center gap-6 shrink-0 ml-4">
-          <Link
-            href={`/${locale}/contact`}
+          <a
+            href="https://wa.me/919544433282"
+            target="_blank"
+            rel="noopener noreferrer"
             className="border border-secondary text-secondary hover:bg-secondary hover:text-primary-dark text-[11px] font-bold tracking-[0.15em] uppercase px-6 py-3 rounded-sm transition-all duration-200 shadow-sm"
           >
             {t.nav.requestQuote}
-          </Link>
+          </a>
 
           {/* Language Selector (Only EN, AR, FR) */}
           <div className="relative">
@@ -177,11 +179,11 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link href={`/${locale}/contact`} onClick={() => setIsOpen(false)}>
+            <a href="https://wa.me/919544433282" target="_blank" rel="noopener noreferrer" onClick={() => setIsOpen(false)}>
               <Button variant="secondary" className="mt-4 w-full">
                 {t.nav.requestQuote}
               </Button>
-            </Link>
+            </a>
           </motion.div>
         )}
       </AnimatePresence>
