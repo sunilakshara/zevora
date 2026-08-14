@@ -15,10 +15,10 @@ export default function DesktopScrollVideo() {
         loop
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover opacity-90 z-0"
-      >
-        <source src="/videos/hero_desktop.mp4" type="video/mp4" />
-      </video>
+        src="/videos/hero_desktop.mp4"
+      />
 
       {/* Overlay to ensure text readability */}
       <div className="absolute inset-0 bg-black/30 pointer-events-none" />
