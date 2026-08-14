@@ -11,7 +11,7 @@ export default function MobileScrollVideo() {
         loop
         muted
         playsInline
-        className="w-full h-full object-cover opacity-90"
+        className="absolute inset-0 w-full h-full object-cover opacity-90 z-0"
       >
         <source src="/videos/hero_mobile.mp4" type="video/mp4" />
       </video>
