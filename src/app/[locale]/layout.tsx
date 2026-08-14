@@ -76,7 +76,6 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/layout/SmoothScroll";
 import SplashScreen from "@/components/ui/SplashScreen";
-import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 export default async function RootLayout(props: Readonly<{
@@ -125,7 +124,6 @@ export default async function RootLayout(props: Readonly<{
                 <main className="flex-grow">{children}</main>
                 <Footer />
               </div>
-              <WhatsAppButton />
             </SmoothScroll>
           </LanguageProvider>
         </NextIntlClientProvider>

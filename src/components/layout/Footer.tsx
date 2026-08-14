@@ -58,7 +58,7 @@ export default function Footer() {
             <li className="flex items-center gap-3"><Mail size={16} className="text-secondary shrink-0" /> contact@zevoragroupe.com</li>
             <li className="flex gap-3 items-start"><Phone size={16} className="text-secondary shrink-0 mt-1" /> 
               <div>
-                <div>India: +91 9544433282</div>
+                <div>India: +91 95269 81559</div>
                 <div>France: +33 745651608</div>
                 <div><span className="opacity-0">France: </span>+33 780867167</div>
               </div>
