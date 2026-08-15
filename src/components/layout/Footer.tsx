@@ -55,7 +55,7 @@ export default function Footer() {
         <div>
           <h4 className="text-secondary font-serif text-lg mb-6">{t.footer.contactUs}</h4>
           <ul className="space-y-4 text-sm text-white/60">
-            <li className="flex items-center gap-3"><Mail size={16} className="text-secondary shrink-0" /> contact@zevoragroupe.com</li>
+            <li className="flex items-center gap-3"><Mail size={16} className="text-secondary shrink-0" /> export@zevoragroupe.com</li>
             <li className="flex gap-3 items-start"><Phone size={16} className="text-secondary shrink-0 mt-1" /> 
               <div>
                 <div>WhatsApp: +91 9544433282</div>
