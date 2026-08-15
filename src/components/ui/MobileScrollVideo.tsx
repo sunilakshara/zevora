@@ -23,36 +23,7 @@ export default function MobileScrollVideo() {
       </video>
 
 
-      {/* Mobile-optimized content layout */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none px-6 z-10 pt-20">
-        <motion.span
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="block text-secondary text-[10px] tracking-[0.4em] uppercase font-medium mb-4"
-        >
-          Zevora Groupe
-        </motion.span>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-white font-serif text-4xl leading-[1.1] mb-6"
-        >
-          Precision at
-          <span className="block text-secondary italic mt-2">Every Point</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-white/80 text-sm max-w-sm leading-relaxed font-light px-4"
-        >
-          Trusted across 42 countries and 5 continents for seamless supply chain delivery.
-        </motion.p>
-      </div>
 
       {/* Centered bottom CTA for mobile */}
       <motion.div 

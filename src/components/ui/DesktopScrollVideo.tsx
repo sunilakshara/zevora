@@ -23,37 +23,7 @@ export default function DesktopScrollVideo() {
       </video>
 
 
-      {/* Left-aligned hero text */}
-      <div className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none px-16 max-w-6xl z-10">
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="block text-secondary text-xs tracking-[0.4em] uppercase font-medium mb-5"
-        >
-          Zevora Groupe · Global Logistics
-        </motion.span>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-white font-serif text-5xl xl:text-7xl leading-tight mb-6 max-w-3xl"
-        >
-          Precision at Every
-          <span className="block text-secondary italic">Point of Delivery</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-white/80 text-base xl:text-lg max-w-xl leading-relaxed font-light"
-        >
-          From warehouse floor to global port, Zevora Groupe operates a seamless supply chain
-          trusted across 42 countries and 5 continents.
-        </motion.p>
-      </div>
 
       {/* Bottom-right CTA */}
       <motion.div 
