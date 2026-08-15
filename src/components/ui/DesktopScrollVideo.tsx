@@ -22,8 +22,6 @@ export default function DesktopScrollVideo() {
         <source src="/hero_extracted.mp4" type="video/mp4" />
       </video>
 
-      {/* Overlay to ensure text readability */}
-      <div className="absolute inset-0 bg-black/30 z-[5] pointer-events-none" />
 
       {/* Left-aligned hero text */}
       <div className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none px-16 max-w-6xl z-10">

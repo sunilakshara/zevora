@@ -22,8 +22,6 @@ export default function MobileScrollVideo() {
         <source src="/hero_extracted.mp4" type="video/mp4" />
       </video>
 
-      {/* Overlay to ensure text readability */}
-      <div className="absolute inset-0 bg-black/40 z-[5] pointer-events-none" />
 
       {/* Mobile-optimized content layout */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none px-6 z-10 pt-20">
