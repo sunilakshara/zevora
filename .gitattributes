@@ -12,3 +12,4 @@ public/globe.png !filter !diff !merge text=auto
 public/images/*.png !filter !diff !merge text=auto
 *.mp4 filter=lfs diff=lfs merge=lfs -text
 public/hero.mp4 !filter !diff !merge text=auto
+public/hero_mobile.mp4 !filter !diff !merge text=auto
