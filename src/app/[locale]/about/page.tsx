@@ -49,8 +49,8 @@ export default function AboutPage() {
               className="w-full max-w-md aspect-[4/5] bg-[#F2F0EB] rounded-md shadow-2xl z-10 overflow-hidden group relative"
             >
               <Image 
-                src="/images/about_story.webp"
-                alt="Three friends"
+                src="/images/friends_back.jpg"
+                alt="Three friends from behind overlooking the horizon"
                 fill
                 quality={100}
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
