@@ -106,7 +106,7 @@ export default function QualityCompliancePage() {
           >
             {/* Sleek Modern Heading */}
             <h1 className="flex flex-col md:flex-row items-center justify-center gap-x-6 gap-y-2 uppercase leading-none overflow-hidden pb-4">
-              <span className="font-serif font-semibold text-[#081C3A] text-5xl md:text-[64px] tracking-wide inline-flex whitespace-nowrap text-center">
+              <span className="font-serif font-semibold text-[#081C3A] text-4xl sm:text-5xl md:text-[64px] tracking-wide inline-flex whitespace-nowrap text-center">
                 {firstPart.split('').map((char, index) => (
                   <motion.span key={index} variants={letterVariants} className="inline-block">
                     {char === ' ' ? '\u00A0' : char}
@@ -114,7 +114,7 @@ export default function QualityCompliancePage() {
                 ))}
               </span>
               
-              <span className="font-sans font-extrabold text-[#D4AF37] text-6xl md:text-[80px] lg:text-[96px] tracking-tight inline-flex whitespace-nowrap text-center mt-2 md:mt-0">
+              <span className="font-sans font-extrabold text-[#D4AF37] text-3xl sm:text-5xl md:text-[80px] lg:text-[96px] tracking-tight inline-flex whitespace-nowrap text-center mt-2 md:mt-0">
                 {lastPart.split('').map((char, index) => (
                   <motion.span key={index} variants={letterVariants} className="inline-block">
                     {char}
