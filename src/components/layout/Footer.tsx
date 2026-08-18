@@ -57,8 +57,10 @@ export default function Footer() {
           <ul className="space-y-4 text-sm text-white/60">
             <li className="flex items-center gap-3"><Mail size={16} className="text-secondary shrink-0" /> export@zevoragroupe.com</li>
             <li className="flex gap-3 items-start"><Phone size={16} className="text-secondary shrink-0 mt-1" /> 
-              <div>
-                <div>WhatsApp: +91 9544433282</div>
+              <div className="flex flex-col gap-1">
+                <div>India (WhatsApp): +91 9544433282</div>
+                <div>France (WhatsApp): +33 745651608</div>
+                <div>France (WhatsApp): +33 780867167</div>
               </div>
             </li>
             <li className="flex gap-2 pt-4">
